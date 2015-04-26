@@ -19,3 +19,15 @@ DS5 Reproducible Research Peer Assn 2
 6. git fetch origin master
 7. git pull origin master
 6. git push master origin
+
+#### Notes for modifying property files to enable publisghing
+##### THis is needed as otherwise you get the error 
+Error in function (type, msg, asError = TRUE) : 
+SSL certificate problem: unable to get local issuer certificate
+Calls: rpubsUpload ... <Anonymous> -> .postForm -> .Call -> <Anonymous> -> fun
+Execution halted
+
+1. Goto -- C:\Program Files\R\R-3.1.2\library\base\R
+2. Copy Rprofile to desktop
+3. add this line in Rprofile -- *options(rpubs.upload.method = "internal")*
+4. copy Rprofile back to C:\Program Files\R\R-3.1.2\library\base\R
