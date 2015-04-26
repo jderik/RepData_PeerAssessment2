@@ -16,4 +16,6 @@ DS5 Reproducible Research Peer Assn 2
 3. git pull origin master
 4. git add .
 5. git commit -m "20150426"
+6. git fetch origin master
+7. git pull origin master
 6. git push master origin
