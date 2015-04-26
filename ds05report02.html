@@ -1,0 +1,1157 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+
+<title>A. Synopsis</title>
+
+<script type="text/javascript">
+window.onload = function() {
+  var imgs = document.getElementsByTagName('img'), i, img;
+  for (i = 0; i < imgs.length; i++) {
+    img = imgs[i];
+    // center an image if it is the only element of its parent
+    if (img.parentElement.childElementCount === 1)
+      img.parentElement.style.textAlign = 'center';
+  }
+};
+</script>
+
+<!-- Styles for R syntax highlighter -->
+<style type="text/css">
+   pre .operator,
+   pre .paren {
+     color: rgb(104, 118, 135)
+   }
+
+   pre .literal {
+     color: #990073
+   }
+
+   pre .number {
+     color: #099;
+   }
+
+   pre .comment {
+     color: #998;
+     font-style: italic
+   }
+
+   pre .keyword {
+     color: #900;
+     font-weight: bold
+   }
+
+   pre .identifier {
+     color: rgb(0, 0, 0);
+   }
+
+   pre .string {
+     color: #d14;
+   }
+</style>
+
+<!-- R syntax highlighter -->
+<script type="text/javascript">
+var hljs=new function(){function m(p){return p.replace(/&/gm,"&amp;").replace(/</gm,"&lt;")}function f(r,q,p){return RegExp(q,"m"+(r.cI?"i":"")+(p?"g":""))}function b(r){for(var p=0;p<r.childNodes.length;p++){var q=r.childNodes[p];if(q.nodeName=="CODE"){return q}if(!(q.nodeType==3&&q.nodeValue.match(/\s+/))){break}}}function h(t,s){var p="";for(var r=0;r<t.childNodes.length;r++){if(t.childNodes[r].nodeType==3){var q=t.childNodes[r].nodeValue;if(s){q=q.replace(/\n/g,"")}p+=q}else{if(t.childNodes[r].nodeName=="BR"){p+="\n"}else{p+=h(t.childNodes[r])}}}if(/MSIE [678]/.test(navigator.userAgent)){p=p.replace(/\r/g,"\n")}return p}function a(s){var r=s.className.split(/\s+/);r=r.concat(s.parentNode.className.split(/\s+/));for(var q=0;q<r.length;q++){var p=r[q].replace(/^language-/,"");if(e[p]){return p}}}function c(q){var p=[];(function(s,t){for(var r=0;r<s.childNodes.length;r++){if(s.childNodes[r].nodeType==3){t+=s.childNodes[r].nodeValue.length}else{if(s.childNodes[r].nodeName=="BR"){t+=1}else{if(s.childNodes[r].nodeType==1){p.push({event:"start",offset:t,node:s.childNodes[r]});t=arguments.callee(s.childNodes[r],t);p.push({event:"stop",offset:t,node:s.childNodes[r]})}}}}return t})(q,0);return p}function k(y,w,x){var q=0;var z="";var s=[];function u(){if(y.length&&w.length){if(y[0].offset!=w[0].offset){return(y[0].offset<w[0].offset)?y:w}else{return w[0].event=="start"?y:w}}else{return y.length?y:w}}function t(D){var A="<"+D.nodeName.toLowerCase();for(var B=0;B<D.attributes.length;B++){var C=D.attributes[B];A+=" "+C.nodeName.toLowerCase();if(C.value!==undefined&&C.value!==false&&C.value!==null){A+='="'+m(C.value)+'"'}}return A+">"}while(y.length||w.length){var v=u().splice(0,1)[0];z+=m(x.substr(q,v.offset-q));q=v.offset;if(v.event=="start"){z+=t(v.node);s.push(v.node)}else{if(v.event=="stop"){var p,r=s.length;do{r--;p=s[r];z+=("</"+p.nodeName.toLowerCase()+">")}while(p!=v.node);s.splice(r,1);while(r<s.length){z+=t(s[r]);r++}}}}return z+m(x.substr(q))}function j(){function q(x,y,v){if(x.compiled){return}var u;var s=[];if(x.k){x.lR=f(y,x.l||hljs.IR,true);for(var w in x.k){if(!x.k.hasOwnProperty(w)){continue}if(x.k[w] instanceof Object){u=x.k[w]}else{u=x.k;w="keyword"}for(var r in u){if(!u.hasOwnProperty(r)){continue}x.k[r]=[w,u[r]];s.push(r)}}}if(!v){if(x.bWK){x.b="\\b("+s.join("|")+")\\s"}x.bR=f(y,x.b?x.b:"\\B|\\b");if(!x.e&&!x.eW){x.e="\\B|\\b"}if(x.e){x.eR=f(y,x.e)}}if(x.i){x.iR=f(y,x.i)}if(x.r===undefined){x.r=1}if(!x.c){x.c=[]}x.compiled=true;for(var t=0;t<x.c.length;t++){if(x.c[t]=="self"){x.c[t]=x}q(x.c[t],y,false)}if(x.starts){q(x.starts,y,false)}}for(var p in e){if(!e.hasOwnProperty(p)){continue}q(e[p].dM,e[p],true)}}function d(B,C){if(!j.called){j();j.called=true}function q(r,M){for(var L=0;L<M.c.length;L++){if((M.c[L].bR.exec(r)||[null])[0]==r){return M.c[L]}}}function v(L,r){if(D[L].e&&D[L].eR.test(r)){return 1}if(D[L].eW){var M=v(L-1,r);return M?M+1:0}return 0}function w(r,L){return L.i&&L.iR.test(r)}function K(N,O){var M=[];for(var L=0;L<N.c.length;L++){M.push(N.c[L].b)}var r=D.length-1;do{if(D[r].e){M.push(D[r].e)}r--}while(D[r+1].eW);if(N.i){M.push(N.i)}return f(O,M.join("|"),true)}function p(M,L){var N=D[D.length-1];if(!N.t){N.t=K(N,E)}N.t.lastIndex=L;var r=N.t.exec(M);return r?[M.substr(L,r.index-L),r[0],false]:[M.substr(L),"",true]}function z(N,r){var L=E.cI?r[0].toLowerCase():r[0];var M=N.k[L];if(M&&M instanceof Array){return M}return false}function F(L,P){L=m(L);if(!P.k){return L}var r="";var O=0;P.lR.lastIndex=0;var M=P.lR.exec(L);while(M){r+=L.substr(O,M.index-O);var N=z(P,M);if(N){x+=N[1];r+='<span class="'+N[0]+'">'+M[0]+"</span>"}else{r+=M[0]}O=P.lR.lastIndex;M=P.lR.exec(L)}return r+L.substr(O,L.length-O)}function J(L,M){if(M.sL&&e[M.sL]){var r=d(M.sL,L);x+=r.keyword_count;return r.value}else{return F(L,M)}}function I(M,r){var L=M.cN?'<span class="'+M.cN+'">':"";if(M.rB){y+=L;M.buffer=""}else{if(M.eB){y+=m(r)+L;M.buffer=""}else{y+=L;M.buffer=r}}D.push(M);A+=M.r}function G(N,M,Q){var R=D[D.length-1];if(Q){y+=J(R.buffer+N,R);return false}var P=q(M,R);if(P){y+=J(R.buffer+N,R);I(P,M);return P.rB}var L=v(D.length-1,M);if(L){var O=R.cN?"</span>":"";if(R.rE){y+=J(R.buffer+N,R)+O}else{if(R.eE){y+=J(R.buffer+N,R)+O+m(M)}else{y+=J(R.buffer+N+M,R)+O}}while(L>1){O=D[D.length-2].cN?"</span>":"";y+=O;L--;D.length--}var r=D[D.length-1];D.length--;D[D.length-1].buffer="";if(r.starts){I(r.starts,"")}return R.rE}if(w(M,R)){throw"Illegal"}}var E=e[B];var D=[E.dM];var A=0;var x=0;var y="";try{var s,u=0;E.dM.buffer="";do{s=p(C,u);var t=G(s[0],s[1],s[2]);u+=s[0].length;if(!t){u+=s[1].length}}while(!s[2]);if(D.length>1){throw"Illegal"}return{r:A,keyword_count:x,value:y}}catch(H){if(H=="Illegal"){return{r:0,keyword_count:0,value:m(C)}}else{throw H}}}function g(t){var p={keyword_count:0,r:0,value:m(t)};var r=p;for(var q in e){if(!e.hasOwnProperty(q)){continue}var s=d(q,t);s.language=q;if(s.keyword_count+s.r>r.keyword_count+r.r){r=s}if(s.keyword_count+s.r>p.keyword_count+p.r){r=p;p=s}}if(r.language){p.second_best=r}return p}function i(r,q,p){if(q){r=r.replace(/^((<[^>]+>|\t)+)/gm,function(t,w,v,u){return w.replace(/\t/g,q)})}if(p){r=r.replace(/\n/g,"<br>")}return r}function n(t,w,r){var x=h(t,r);var v=a(t);var y,s;if(v){y=d(v,x)}else{return}var q=c(t);if(q.length){s=document.createElement("pre");s.innerHTML=y.value;y.value=k(q,c(s),x)}y.value=i(y.value,w,r);var u=t.className;if(!u.match("(\\s|^)(language-)?"+v+"(\\s|$)")){u=u?(u+" "+v):v}if(/MSIE [678]/.test(navigator.userAgent)&&t.tagName=="CODE"&&t.parentNode.tagName=="PRE"){s=t.parentNode;var p=document.createElement("div");p.innerHTML="<pre><code>"+y.value+"</code></pre>";t=p.firstChild.firstChild;p.firstChild.cN=s.cN;s.parentNode.replaceChild(p.firstChild,s)}else{t.innerHTML=y.value}t.className=u;t.result={language:v,kw:y.keyword_count,re:y.r};if(y.second_best){t.second_best={language:y.second_best.language,kw:y.second_best.keyword_count,re:y.second_best.r}}}function o(){if(o.called){return}o.called=true;var r=document.getElementsByTagName("pre");for(var p=0;p<r.length;p++){var q=b(r[p]);if(q){n(q,hljs.tabReplace)}}}function l(){if(window.addEventListener){window.addEventListener("DOMContentLoaded",o,false);window.addEventListener("load",o,false)}else{if(window.attachEvent){window.attachEvent("onload",o)}else{window.onload=o}}}var e={};this.LANGUAGES=e;this.highlight=d;this.highlightAuto=g;this.fixMarkup=i;this.highlightBlock=n;this.initHighlighting=o;this.initHighlightingOnLoad=l;this.IR="[a-zA-Z][a-zA-Z0-9_]*";this.UIR="[a-zA-Z_][a-zA-Z0-9_]*";this.NR="\\b\\d+(\\.\\d+)?";this.CNR="\\b(0[xX][a-fA-F0-9]+|(\\d+(\\.\\d*)?|\\.\\d+)([eE][-+]?\\d+)?)";this.BNR="\\b(0b[01]+)";this.RSR="!|!=|!==|%|%=|&|&&|&=|\\*|\\*=|\\+|\\+=|,|\\.|-|-=|/|/=|:|;|<|<<|<<=|<=|=|==|===|>|>=|>>|>>=|>>>|>>>=|\\?|\\[|\\{|\\(|\\^|\\^=|\\||\\|=|\\|\\||~";this.ER="(?![\\s\\S])";this.BE={b:"\\\\.",r:0};this.ASM={cN:"string",b:"'",e:"'",i:"\\n",c:[this.BE],r:0};this.QSM={cN:"string",b:'"',e:'"',i:"\\n",c:[this.BE],r:0};this.CLCM={cN:"comment",b:"//",e:"$"};this.CBLCLM={cN:"comment",b:"/\\*",e:"\\*/"};this.HCM={cN:"comment",b:"#",e:"$"};this.NM={cN:"number",b:this.NR,r:0};this.CNM={cN:"number",b:this.CNR,r:0};this.BNM={cN:"number",b:this.BNR,r:0};this.inherit=function(r,s){var p={};for(var q in r){p[q]=r[q]}if(s){for(var q in s){p[q]=s[q]}}return p}}();hljs.LANGUAGES.cpp=function(){var a={keyword:{"false":1,"int":1,"float":1,"while":1,"private":1,"char":1,"catch":1,"export":1,virtual:1,operator:2,sizeof:2,dynamic_cast:2,typedef:2,const_cast:2,"const":1,struct:1,"for":1,static_cast:2,union:1,namespace:1,unsigned:1,"long":1,"throw":1,"volatile":2,"static":1,"protected":1,bool:1,template:1,mutable:1,"if":1,"public":1,friend:2,"do":1,"return":1,"goto":1,auto:1,"void":2,"enum":1,"else":1,"break":1,"new":1,extern:1,using:1,"true":1,"class":1,asm:1,"case":1,typeid:1,"short":1,reinterpret_cast:2,"default":1,"double":1,register:1,explicit:1,signed:1,typename:1,"try":1,"this":1,"switch":1,"continue":1,wchar_t:1,inline:1,"delete":1,alignof:1,char16_t:1,char32_t:1,constexpr:1,decltype:1,noexcept:1,nullptr:1,static_assert:1,thread_local:1,restrict:1,_Bool:1,complex:1},built_in:{std:1,string:1,cin:1,cout:1,cerr:1,clog:1,stringstream:1,istringstream:1,ostringstream:1,auto_ptr:1,deque:1,list:1,queue:1,stack:1,vector:1,map:1,set:1,bitset:1,multiset:1,multimap:1,unordered_set:1,unordered_map:1,unordered_multiset:1,unordered_multimap:1,array:1,shared_ptr:1}};return{dM:{k:a,i:"</",c:[hljs.CLCM,hljs.CBLCLM,hljs.QSM,{cN:"string",b:"'\\\\?.",e:"'",i:"."},{cN:"number",b:"\\b(\\d+(\\.\\d*)?|\\.\\d+)(u|U|l|L|ul|UL|f|F)"},hljs.CNM,{cN:"preprocessor",b:"#",e:"$"},{cN:"stl_container",b:"\\b(deque|list|queue|stack|vector|map|set|bitset|multiset|multimap|unordered_map|unordered_set|unordered_multiset|unordered_multimap|array)\\s*<",e:">",k:a,r:10,c:["self"]}]}}}();hljs.LANGUAGES.r={dM:{c:[hljs.HCM,{cN:"number",b:"\\b0[xX][0-9a-fA-F]+[Li]?\\b",e:hljs.IMMEDIATE_RE,r:0},{cN:"number",b:"\\b\\d+(?:[eE][+\\-]?\\d*)?L\\b",e:hljs.IMMEDIATE_RE,r:0},{cN:"number",b:"\\b\\d+\\.(?!\\d)(?:i\\b)?",e:hljs.IMMEDIATE_RE,r:1},{cN:"number",b:"\\b\\d+(?:\\.\\d*)?(?:[eE][+\\-]?\\d*)?i?\\b",e:hljs.IMMEDIATE_RE,r:0},{cN:"number",b:"\\.\\d+(?:[eE][+\\-]?\\d*)?i?\\b",e:hljs.IMMEDIATE_RE,r:1},{cN:"keyword",b:"(?:tryCatch|library|setGeneric|setGroupGeneric)\\b",e:hljs.IMMEDIATE_RE,r:10},{cN:"keyword",b:"\\.\\.\\.",e:hljs.IMMEDIATE_RE,r:10},{cN:"keyword",b:"\\.\\.\\d+(?![\\w.])",e:hljs.IMMEDIATE_RE,r:10},{cN:"keyword",b:"\\b(?:function)",e:hljs.IMMEDIATE_RE,r:2},{cN:"keyword",b:"(?:if|in|break|next|repeat|else|for|return|switch|while|try|stop|warning|require|attach|detach|source|setMethod|setClass)\\b",e:hljs.IMMEDIATE_RE,r:1},{cN:"literal",b:"(?:NA|NA_integer_|NA_real_|NA_character_|NA_complex_)\\b",e:hljs.IMMEDIATE_RE,r:10},{cN:"literal",b:"(?:NULL|TRUE|FALSE|T|F|Inf|NaN)\\b",e:hljs.IMMEDIATE_RE,r:1},{cN:"identifier",b:"[a-zA-Z.][a-zA-Z0-9._]*\\b",e:hljs.IMMEDIATE_RE,r:0},{cN:"operator",b:"<\\-(?!\\s*\\d)",e:hljs.IMMEDIATE_RE,r:2},{cN:"operator",b:"\\->|<\\-",e:hljs.IMMEDIATE_RE,r:1},{cN:"operator",b:"%%|~",e:hljs.IMMEDIATE_RE},{cN:"operator",b:">=|<=|==|!=|\\|\\||&&|=|\\+|\\-|\\*|/|\\^|>|<|!|&|\\||\\$|:",e:hljs.IMMEDIATE_RE,r:0},{cN:"operator",b:"%",e:"%",i:"\\n",r:1},{cN:"identifier",b:"`",e:"`",r:0},{cN:"string",b:'"',e:'"',c:[hljs.BE],r:0},{cN:"string",b:"'",e:"'",c:[hljs.BE],r:0},{cN:"paren",b:"[[({\\])}]",e:hljs.IMMEDIATE_RE,r:0}]}};
+hljs.initHighlightingOnLoad();
+</script>
+
+
+
+<style type="text/css">
+body, td {
+   font-family: sans-serif;
+   background-color: white;
+   font-size: 13px;
+}
+
+body {
+  max-width: 800px;
+  margin: auto;
+  padding: 1em;
+  line-height: 20px;
+}
+
+tt, code, pre {
+   font-family: 'DejaVu Sans Mono', 'Droid Sans Mono', 'Lucida Console', Consolas, Monaco, monospace;
+}
+
+h1 {
+   font-size:2.2em;
+}
+
+h2 {
+   font-size:1.8em;
+}
+
+h3 {
+   font-size:1.4em;
+}
+
+h4 {
+   font-size:1.0em;
+}
+
+h5 {
+   font-size:0.9em;
+}
+
+h6 {
+   font-size:0.8em;
+}
+
+a:visited {
+   color: rgb(50%, 0%, 50%);
+}
+
+pre, img {
+  max-width: 100%;
+}
+pre {
+  overflow-x: auto;
+}
+pre code {
+   display: block; padding: 0.5em;
+}
+
+code {
+  font-size: 92%;
+  border: 1px solid #ccc;
+}
+
+code[class] {
+  background-color: #F8F8F8;
+}
+
+table, td, th {
+  border: none;
+}
+
+blockquote {
+   color:#666666;
+   margin:0;
+   padding-left: 1em;
+   border-left: 0.5em #EEE solid;
+}
+
+hr {
+   height: 0px;
+   border-bottom: none;
+   border-top-width: thin;
+   border-top-style: dotted;
+   border-top-color: #999999;
+}
+
+@media print {
+   * {
+      background: transparent !important;
+      color: black !important;
+      filter:none !important;
+      -ms-filter: none !important;
+   }
+
+   body {
+      font-size:12pt;
+      max-width:100%;
+   }
+
+   a, a:visited {
+      text-decoration: underline;
+   }
+
+   hr {
+      visibility: hidden;
+      page-break-before: always;
+   }
+
+   pre, blockquote {
+      padding-right: 1em;
+      page-break-inside: avoid;
+   }
+
+   tr, img {
+      page-break-inside: avoid;
+   }
+
+   img {
+      max-width: 100% !important;
+   }
+
+   @page :left {
+      margin: 15mm 20mm 15mm 10mm;
+   }
+
+   @page :right {
+      margin: 15mm 10mm 15mm 20mm;
+   }
+
+   p, h2, h3 {
+      orphans: 3; widows: 3;
+   }
+
+   h2, h3 {
+      page-break-after: avoid;
+   }
+}
+</style>
+
+
+
+</head>
+
+<body>
+<h3>A. Synopsis</h3>
+
+<p>Storms and other severe weather events can cause both public health and economic problems for communities and municipalities. Many severe events can result in fatalities, injuries, and property damage, and preventing such outcomes to the extent possible is a key concern.</p>
+
+<p>This project involves exploring the U.S. National Oceanic and Atmospheric Administration&#39;s (NOAA) storm database. This database tracks characteristics of major storms and weather events in the United States, including when and where they occur, as well as estimates of any fatalities, injuries, and property damage.</p>
+
+<p>Chiefly this document addresses</p>
+
+<p>*Across the United States, which types of events are most harmful with respect to population health?</p>
+
+<p>*Across the United States, which types of events have the greatest economic consequences?</p>
+
+<h3>B. Data Processing</h3>
+
+<p>The data for this assignment come in the form of a comma-separated-value file compressed via the bzip2 algorithm to reduce its size. 
+The events in the database start in the year 1950 and end in November 2011. In the earlier years of the database there are generally fewer events recorded, most likely due to a lack of good records. More recent years should be considered more complete.</p>
+
+<h4><em>B.1 Load Libraries</em></h4>
+
+<pre><code class="r">library(ggplot2)
+library(plyr)
+</code></pre>
+
+<h4><em>B.2 Set work directory &amp; Load Data</em></h4>
+
+<pre><code class="r">setwd(&quot;~/Coursera/5/RepData_PeerAssessment2&quot;)
+
+data &lt;- file.path(getwd(), &quot;StormData.csv.bz2&quot;)
+readData &lt;- read.csv(data, stringsAsFactors = FALSE)
+</code></pre>
+
+<h4><em>B.3 Data Analyze View</em></h4>
+
+<h5><em>B.3.1 View data using class and str and summary</em></h5>
+
+<pre><code class="r">class(readData)
+</code></pre>
+
+<pre><code>## [1] &quot;data.frame&quot;
+</code></pre>
+
+<pre><code class="r">str(readData)
+</code></pre>
+
+<pre><code>## &#39;data.frame&#39;:    902297 obs. of  37 variables:
+##  $ STATE__   : num  1 1 1 1 1 1 1 1 1 1 ...
+##  $ BGN_DATE  : chr  &quot;4/18/1950 0:00:00&quot; &quot;4/18/1950 0:00:00&quot; &quot;2/20/1951 0:00:00&quot; &quot;6/8/1951 0:00:00&quot; ...
+##  $ BGN_TIME  : chr  &quot;0130&quot; &quot;0145&quot; &quot;1600&quot; &quot;0900&quot; ...
+##  $ TIME_ZONE : chr  &quot;CST&quot; &quot;CST&quot; &quot;CST&quot; &quot;CST&quot; ...
+##  $ COUNTY    : num  97 3 57 89 43 77 9 123 125 57 ...
+##  $ COUNTYNAME: chr  &quot;MOBILE&quot; &quot;BALDWIN&quot; &quot;FAYETTE&quot; &quot;MADISON&quot; ...
+##  $ STATE     : chr  &quot;AL&quot; &quot;AL&quot; &quot;AL&quot; &quot;AL&quot; ...
+##  $ EVTYPE    : chr  &quot;TORNADO&quot; &quot;TORNADO&quot; &quot;TORNADO&quot; &quot;TORNADO&quot; ...
+##  $ BGN_RANGE : num  0 0 0 0 0 0 0 0 0 0 ...
+##  $ BGN_AZI   : chr  &quot;&quot; &quot;&quot; &quot;&quot; &quot;&quot; ...
+##  $ BGN_LOCATI: chr  &quot;&quot; &quot;&quot; &quot;&quot; &quot;&quot; ...
+##  $ END_DATE  : chr  &quot;&quot; &quot;&quot; &quot;&quot; &quot;&quot; ...
+##  $ END_TIME  : chr  &quot;&quot; &quot;&quot; &quot;&quot; &quot;&quot; ...
+##  $ COUNTY_END: num  0 0 0 0 0 0 0 0 0 0 ...
+##  $ COUNTYENDN: logi  NA NA NA NA NA NA ...
+##  $ END_RANGE : num  0 0 0 0 0 0 0 0 0 0 ...
+##  $ END_AZI   : chr  &quot;&quot; &quot;&quot; &quot;&quot; &quot;&quot; ...
+##  $ END_LOCATI: chr  &quot;&quot; &quot;&quot; &quot;&quot; &quot;&quot; ...
+##  $ LENGTH    : num  14 2 0.1 0 0 1.5 1.5 0 3.3 2.3 ...
+##  $ WIDTH     : num  100 150 123 100 150 177 33 33 100 100 ...
+##  $ F         : int  3 2 2 2 2 2 2 1 3 3 ...
+##  $ MAG       : num  0 0 0 0 0 0 0 0 0 0 ...
+##  $ FATALITIES: num  0 0 0 0 0 0 0 0 1 0 ...
+##  $ INJURIES  : num  15 0 2 2 2 6 1 0 14 0 ...
+##  $ PROPDMG   : num  25 2.5 25 2.5 2.5 2.5 2.5 2.5 25 25 ...
+##  $ PROPDMGEXP: chr  &quot;K&quot; &quot;K&quot; &quot;K&quot; &quot;K&quot; ...
+##  $ CROPDMG   : num  0 0 0 0 0 0 0 0 0 0 ...
+##  $ CROPDMGEXP: chr  &quot;&quot; &quot;&quot; &quot;&quot; &quot;&quot; ...
+##  $ WFO       : chr  &quot;&quot; &quot;&quot; &quot;&quot; &quot;&quot; ...
+##  $ STATEOFFIC: chr  &quot;&quot; &quot;&quot; &quot;&quot; &quot;&quot; ...
+##  $ ZONENAMES : chr  &quot;&quot; &quot;&quot; &quot;&quot; &quot;&quot; ...
+##  $ LATITUDE  : num  3040 3042 3340 3458 3412 ...
+##  $ LONGITUDE : num  8812 8755 8742 8626 8642 ...
+##  $ LATITUDE_E: num  3051 0 0 0 0 ...
+##  $ LONGITUDE_: num  8806 0 0 0 0 ...
+##  $ REMARKS   : chr  &quot;&quot; &quot;&quot; &quot;&quot; &quot;&quot; ...
+##  $ REFNUM    : num  1 2 3 4 5 6 7 8 9 10 ...
+</code></pre>
+
+<pre><code class="r">summary(readData)
+</code></pre>
+
+<pre><code>##     STATE__       BGN_DATE           BGN_TIME          TIME_ZONE        
+##  Min.   : 1.0   Length:902297      Length:902297      Length:902297     
+##  1st Qu.:19.0   Class :character   Class :character   Class :character  
+##  Median :30.0   Mode  :character   Mode  :character   Mode  :character  
+##  Mean   :31.2                                                           
+##  3rd Qu.:45.0                                                           
+##  Max.   :95.0                                                           
+##                                                                         
+##      COUNTY       COUNTYNAME           STATE              EVTYPE         
+##  Min.   :  0.0   Length:902297      Length:902297      Length:902297     
+##  1st Qu.: 31.0   Class :character   Class :character   Class :character  
+##  Median : 75.0   Mode  :character   Mode  :character   Mode  :character  
+##  Mean   :100.6                                                           
+##  3rd Qu.:131.0                                                           
+##  Max.   :873.0                                                           
+##                                                                          
+##    BGN_RANGE          BGN_AZI           BGN_LOCATI       
+##  Min.   :   0.000   Length:902297      Length:902297     
+##  1st Qu.:   0.000   Class :character   Class :character  
+##  Median :   0.000   Mode  :character   Mode  :character  
+##  Mean   :   1.484                                        
+##  3rd Qu.:   1.000                                        
+##  Max.   :3749.000                                        
+##                                                          
+##    END_DATE           END_TIME           COUNTY_END COUNTYENDN    
+##  Length:902297      Length:902297      Min.   :0    Mode:logical  
+##  Class :character   Class :character   1st Qu.:0    NA&#39;s:902297   
+##  Mode  :character   Mode  :character   Median :0                  
+##                                        Mean   :0                  
+##                                        3rd Qu.:0                  
+##                                        Max.   :0                  
+##                                                                   
+##    END_RANGE          END_AZI           END_LOCATI       
+##  Min.   :  0.0000   Length:902297      Length:902297     
+##  1st Qu.:  0.0000   Class :character   Class :character  
+##  Median :  0.0000   Mode  :character   Mode  :character  
+##  Mean   :  0.9862                                        
+##  3rd Qu.:  0.0000                                        
+##  Max.   :925.0000                                        
+##                                                          
+##      LENGTH              WIDTH                F               MAG         
+##  Min.   :   0.0000   Min.   :   0.000   Min.   :0.0      Min.   :    0.0  
+##  1st Qu.:   0.0000   1st Qu.:   0.000   1st Qu.:0.0      1st Qu.:    0.0  
+##  Median :   0.0000   Median :   0.000   Median :1.0      Median :   50.0  
+##  Mean   :   0.2301   Mean   :   7.503   Mean   :0.9      Mean   :   46.9  
+##  3rd Qu.:   0.0000   3rd Qu.:   0.000   3rd Qu.:1.0      3rd Qu.:   75.0  
+##  Max.   :2315.0000   Max.   :4400.000   Max.   :5.0      Max.   :22000.0  
+##                                         NA&#39;s   :843563                    
+##    FATALITIES          INJURIES            PROPDMG       
+##  Min.   :  0.0000   Min.   :   0.0000   Min.   :   0.00  
+##  1st Qu.:  0.0000   1st Qu.:   0.0000   1st Qu.:   0.00  
+##  Median :  0.0000   Median :   0.0000   Median :   0.00  
+##  Mean   :  0.0168   Mean   :   0.1557   Mean   :  12.06  
+##  3rd Qu.:  0.0000   3rd Qu.:   0.0000   3rd Qu.:   0.50  
+##  Max.   :583.0000   Max.   :1700.0000   Max.   :5000.00  
+##                                                          
+##   PROPDMGEXP           CROPDMG         CROPDMGEXP       
+##  Length:902297      Min.   :  0.000   Length:902297     
+##  Class :character   1st Qu.:  0.000   Class :character  
+##  Mode  :character   Median :  0.000   Mode  :character  
+##                     Mean   :  1.527                     
+##                     3rd Qu.:  0.000                     
+##                     Max.   :990.000                     
+##                                                         
+##      WFO             STATEOFFIC         ZONENAMES            LATITUDE   
+##  Length:902297      Length:902297      Length:902297      Min.   :   0  
+##  Class :character   Class :character   Class :character   1st Qu.:2802  
+##  Mode  :character   Mode  :character   Mode  :character   Median :3540  
+##                                                           Mean   :2875  
+##                                                           3rd Qu.:4019  
+##                                                           Max.   :9706  
+##                                                           NA&#39;s   :47    
+##    LONGITUDE        LATITUDE_E     LONGITUDE_       REMARKS         
+##  Min.   :-14451   Min.   :   0   Min.   :-14455   Length:902297     
+##  1st Qu.:  7247   1st Qu.:   0   1st Qu.:     0   Class :character  
+##  Median :  8707   Median :   0   Median :     0   Mode  :character  
+##  Mean   :  6940   Mean   :1452   Mean   :  3509                     
+##  3rd Qu.:  9605   3rd Qu.:3549   3rd Qu.:  8735                     
+##  Max.   : 17124   Max.   :9706   Max.   :106220                     
+##                   NA&#39;s   :40                                        
+##      REFNUM      
+##  Min.   :     1  
+##  1st Qu.:225575  
+##  Median :451149  
+##  Mean   :451149  
+##  3rd Qu.:676723  
+##  Max.   :902297  
+## 
+</code></pre>
+
+<p>*This indicates tha there are 902297 observations ; 37 variables</p>
+
+<h5><em>B.3.2 View the unique EVTYPE contents</em></h5>
+
+<pre><code class="r">sort(unique(readData$EVTYPE))
+</code></pre>
+
+<pre><code>##   [1] &quot;   HIGH SURF ADVISORY&quot;          &quot; COASTAL FLOOD&quot;                
+##   [3] &quot; FLASH FLOOD&quot;                   &quot; LIGHTNING&quot;                    
+##   [5] &quot; TSTM WIND&quot;                     &quot; TSTM WIND (G45)&quot;              
+##   [7] &quot; WATERSPOUT&quot;                    &quot; WIND&quot;                         
+##   [9] &quot;?&quot;                              &quot;ABNORMAL WARMTH&quot;               
+##  [11] &quot;ABNORMALLY DRY&quot;                 &quot;ABNORMALLY WET&quot;                
+##  [13] &quot;ACCUMULATED SNOWFALL&quot;           &quot;AGRICULTURAL FREEZE&quot;           
+##  [15] &quot;APACHE COUNTY&quot;                  &quot;ASTRONOMICAL HIGH TIDE&quot;        
+##  [17] &quot;ASTRONOMICAL LOW TIDE&quot;          &quot;AVALANCE&quot;                      
+##  [19] &quot;AVALANCHE&quot;                      &quot;BEACH EROSIN&quot;                  
+##  [21] &quot;Beach Erosion&quot;                  &quot;BEACH EROSION&quot;                 
+##  [23] &quot;BEACH EROSION/COASTAL FLOOD&quot;    &quot;BEACH FLOOD&quot;                   
+##  [25] &quot;BELOW NORMAL PRECIPITATION&quot;     &quot;BITTER WIND CHILL&quot;             
+##  [27] &quot;BITTER WIND CHILL TEMPERATURES&quot; &quot;Black Ice&quot;                     
+##  [29] &quot;BLACK ICE&quot;                      &quot;BLIZZARD&quot;                      
+##  [31] &quot;BLIZZARD AND EXTREME WIND CHIL&quot; &quot;BLIZZARD AND HEAVY SNOW&quot;       
+##  [33] &quot;Blizzard Summary&quot;               &quot;BLIZZARD WEATHER&quot;              
+##  [35] &quot;BLIZZARD/FREEZING RAIN&quot;         &quot;BLIZZARD/HEAVY SNOW&quot;           
+##  [37] &quot;BLIZZARD/HIGH WIND&quot;             &quot;BLIZZARD/WINTER STORM&quot;         
+##  [39] &quot;BLOW-OUT TIDE&quot;                  &quot;BLOW-OUT TIDES&quot;                
+##  [41] &quot;BLOWING DUST&quot;                   &quot;blowing snow&quot;                  
+##  [43] &quot;Blowing Snow&quot;                   &quot;BLOWING SNOW&quot;                  
+##  [45] &quot;BLOWING SNOW- EXTREME WIND CHI&quot; &quot;BLOWING SNOW &amp; EXTREME WIND CH&quot;
+##  [47] &quot;BLOWING SNOW/EXTREME WIND CHIL&quot; &quot;BREAKUP FLOODING&quot;              
+##  [49] &quot;BRUSH FIRE&quot;                     &quot;BRUSH FIRES&quot;                   
+##  [51] &quot;COASTAL  FLOODING/EROSION&quot;      &quot;COASTAL EROSION&quot;               
+##  [53] &quot;Coastal Flood&quot;                  &quot;COASTAL FLOOD&quot;                 
+##  [55] &quot;coastal flooding&quot;               &quot;Coastal Flooding&quot;              
+##  [57] &quot;COASTAL FLOODING&quot;               &quot;COASTAL FLOODING/EROSION&quot;      
+##  [59] &quot;Coastal Storm&quot;                  &quot;COASTAL STORM&quot;                 
+##  [61] &quot;COASTAL SURGE&quot;                  &quot;COASTAL/TIDAL FLOOD&quot;           
+##  [63] &quot;COASTALFLOOD&quot;                   &quot;COASTALSTORM&quot;                  
+##  [65] &quot;Cold&quot;                           &quot;COLD&quot;                          
+##  [67] &quot;COLD AIR FUNNEL&quot;                &quot;COLD AIR FUNNELS&quot;              
+##  [69] &quot;COLD AIR TORNADO&quot;               &quot;Cold and Frost&quot;                
+##  [71] &quot;COLD AND FROST&quot;                 &quot;COLD AND SNOW&quot;                 
+##  [73] &quot;COLD AND WET CONDITIONS&quot;        &quot;Cold Temperature&quot;              
+##  [75] &quot;COLD TEMPERATURES&quot;              &quot;COLD WAVE&quot;                     
+##  [77] &quot;COLD WEATHER&quot;                   &quot;COLD WIND CHILL TEMPERATURES&quot;  
+##  [79] &quot;COLD/WIND CHILL&quot;                &quot;COLD/WINDS&quot;                    
+##  [81] &quot;COOL AND WET&quot;                   &quot;COOL SPELL&quot;                    
+##  [83] &quot;CSTL FLOODING/EROSION&quot;          &quot;DAM BREAK&quot;                     
+##  [85] &quot;DAM FAILURE&quot;                    &quot;Damaging Freeze&quot;               
+##  [87] &quot;DAMAGING FREEZE&quot;                &quot;DEEP HAIL&quot;                     
+##  [89] &quot;DENSE FOG&quot;                      &quot;DENSE SMOKE&quot;                   
+##  [91] &quot;DOWNBURST&quot;                      &quot;DOWNBURST WINDS&quot;               
+##  [93] &quot;DRIEST MONTH&quot;                   &quot;Drifting Snow&quot;                 
+##  [95] &quot;DROUGHT&quot;                        &quot;DROUGHT/EXCESSIVE HEAT&quot;        
+##  [97] &quot;DROWNING&quot;                       &quot;DRY&quot;                           
+##  [99] &quot;DRY CONDITIONS&quot;                 &quot;DRY HOT WEATHER&quot;               
+## [101] &quot;DRY MICROBURST&quot;                 &quot;DRY MICROBURST 50&quot;             
+## [103] &quot;DRY MICROBURST 53&quot;              &quot;DRY MICROBURST 58&quot;             
+## [105] &quot;DRY MICROBURST 61&quot;              &quot;DRY MICROBURST 84&quot;             
+## [107] &quot;DRY MICROBURST WINDS&quot;           &quot;DRY MIRCOBURST WINDS&quot;          
+## [109] &quot;DRY PATTERN&quot;                    &quot;DRY SPELL&quot;                     
+## [111] &quot;DRY WEATHER&quot;                    &quot;DRYNESS&quot;                       
+## [113] &quot;DUST DEVEL&quot;                     &quot;Dust Devil&quot;                    
+## [115] &quot;DUST DEVIL&quot;                     &quot;DUST DEVIL WATERSPOUT&quot;         
+## [117] &quot;DUST STORM&quot;                     &quot;DUST STORM/HIGH WINDS&quot;         
+## [119] &quot;DUSTSTORM&quot;                      &quot;EARLY FREEZE&quot;                  
+## [121] &quot;Early Frost&quot;                    &quot;EARLY FROST&quot;                   
+## [123] &quot;EARLY RAIN&quot;                     &quot;EARLY SNOW&quot;                    
+## [125] &quot;Early snowfall&quot;                 &quot;EARLY SNOWFALL&quot;                
+## [127] &quot;Erosion/Cstl Flood&quot;             &quot;EXCESSIVE&quot;                     
+## [129] &quot;Excessive Cold&quot;                 &quot;EXCESSIVE HEAT&quot;                
+## [131] &quot;EXCESSIVE HEAT/DROUGHT&quot;         &quot;EXCESSIVE PRECIPITATION&quot;       
+## [133] &quot;EXCESSIVE RAIN&quot;                 &quot;EXCESSIVE RAINFALL&quot;            
+## [135] &quot;EXCESSIVE SNOW&quot;                 &quot;EXCESSIVE WETNESS&quot;             
+## [137] &quot;EXCESSIVELY DRY&quot;                &quot;Extended Cold&quot;                 
+## [139] &quot;Extreme Cold&quot;                   &quot;EXTREME COLD&quot;                  
+## [141] &quot;EXTREME COLD/WIND CHILL&quot;        &quot;EXTREME HEAT&quot;                  
+## [143] &quot;EXTREME WIND CHILL&quot;             &quot;EXTREME WIND CHILL/BLOWING SNO&quot;
+## [145] &quot;EXTREME WIND CHILLS&quot;            &quot;EXTREME WINDCHILL&quot;             
+## [147] &quot;EXTREME WINDCHILL TEMPERATURES&quot; &quot;EXTREME/RECORD COLD&quot;           
+## [149] &quot;EXTREMELY WET&quot;                  &quot;FALLING SNOW/ICE&quot;              
+## [151] &quot;FIRST FROST&quot;                    &quot;FIRST SNOW&quot;                    
+## [153] &quot;FLASH FLOOD&quot;                    &quot;FLASH FLOOD - HEAVY RAIN&quot;      
+## [155] &quot;FLASH FLOOD FROM ICE JAMS&quot;      &quot;FLASH FLOOD LANDSLIDES&quot;        
+## [157] &quot;FLASH FLOOD WINDS&quot;              &quot;FLASH FLOOD/&quot;                  
+## [159] &quot;FLASH FLOOD/ FLOOD&quot;             &quot;FLASH FLOOD/ STREET&quot;           
+## [161] &quot;FLASH FLOOD/FLOOD&quot;              &quot;FLASH FLOOD/HEAVY RAIN&quot;        
+## [163] &quot;FLASH FLOOD/LANDSLIDE&quot;          &quot;FLASH FLOODING&quot;                
+## [165] &quot;FLASH FLOODING/FLOOD&quot;           &quot;FLASH FLOODING/THUNDERSTORM WI&quot;
+## [167] &quot;FLASH FLOODS&quot;                   &quot;FLASH FLOOODING&quot;               
+## [169] &quot;Flood&quot;                          &quot;FLOOD&quot;                         
+## [171] &quot;FLOOD &amp; HEAVY RAIN&quot;             &quot;FLOOD FLASH&quot;                   
+## [173] &quot;FLOOD FLOOD/FLASH&quot;              &quot;FLOOD WATCH/&quot;                  
+## [175] &quot;FLOOD/FLASH&quot;                    &quot;Flood/Flash Flood&quot;             
+## [177] &quot;FLOOD/FLASH FLOOD&quot;              &quot;FLOOD/FLASH FLOODING&quot;          
+## [179] &quot;FLOOD/FLASH/FLOOD&quot;              &quot;FLOOD/FLASHFLOOD&quot;              
+## [181] &quot;FLOOD/RAIN/WIND&quot;                &quot;FLOOD/RAIN/WINDS&quot;              
+## [183] &quot;FLOOD/RIVER FLOOD&quot;              &quot;Flood/Strong Wind&quot;             
+## [185] &quot;FLOODING&quot;                       &quot;FLOODING/HEAVY RAIN&quot;           
+## [187] &quot;FLOODS&quot;                         &quot;FOG&quot;                           
+## [189] &quot;FOG AND COLD TEMPERATURES&quot;      &quot;FOREST FIRES&quot;                  
+## [191] &quot;Freeze&quot;                         &quot;FREEZE&quot;                        
+## [193] &quot;Freezing drizzle&quot;               &quot;Freezing Drizzle&quot;              
+## [195] &quot;FREEZING DRIZZLE&quot;               &quot;FREEZING DRIZZLE AND FREEZING&quot; 
+## [197] &quot;Freezing Fog&quot;                   &quot;FREEZING FOG&quot;                  
+## [199] &quot;Freezing rain&quot;                  &quot;Freezing Rain&quot;                 
+## [201] &quot;FREEZING RAIN&quot;                  &quot;FREEZING RAIN AND SLEET&quot;       
+## [203] &quot;FREEZING RAIN AND SNOW&quot;         &quot;FREEZING RAIN SLEET AND&quot;       
+## [205] &quot;FREEZING RAIN SLEET AND LIGHT&quot;  &quot;FREEZING RAIN/SLEET&quot;           
+## [207] &quot;FREEZING RAIN/SNOW&quot;             &quot;Freezing Spray&quot;                
+## [209] &quot;Frost&quot;                          &quot;FROST&quot;                         
+## [211] &quot;Frost/Freeze&quot;                   &quot;FROST/FREEZE&quot;                  
+## [213] &quot;FROST\\FREEZE&quot;                  &quot;FUNNEL&quot;                        
+## [215] &quot;Funnel Cloud&quot;                   &quot;FUNNEL CLOUD&quot;                  
+## [217] &quot;FUNNEL CLOUD.&quot;                  &quot;FUNNEL CLOUD/HAIL&quot;             
+## [219] &quot;FUNNEL CLOUDS&quot;                  &quot;FUNNELS&quot;                       
+## [221] &quot;Glaze&quot;                          &quot;GLAZE&quot;                         
+## [223] &quot;GLAZE ICE&quot;                      &quot;GLAZE/ICE STORM&quot;               
+## [225] &quot;gradient wind&quot;                  &quot;Gradient wind&quot;                 
+## [227] &quot;GRADIENT WIND&quot;                  &quot;GRADIENT WINDS&quot;                
+## [229] &quot;GRASS FIRES&quot;                    &quot;GROUND BLIZZARD&quot;               
+## [231] &quot;GUSTNADO&quot;                       &quot;GUSTNADO AND&quot;                  
+## [233] &quot;GUSTY LAKE WIND&quot;                &quot;GUSTY THUNDERSTORM WIND&quot;       
+## [235] &quot;GUSTY THUNDERSTORM WINDS&quot;       &quot;Gusty Wind&quot;                    
+## [237] &quot;GUSTY WIND&quot;                     &quot;GUSTY WIND/HAIL&quot;               
+## [239] &quot;GUSTY WIND/HVY RAIN&quot;            &quot;Gusty wind/rain&quot;               
+## [241] &quot;Gusty winds&quot;                    &quot;Gusty Winds&quot;                   
+## [243] &quot;GUSTY WINDS&quot;                    &quot;HAIL&quot;                          
+## [245] &quot;HAIL 0.75&quot;                      &quot;HAIL 0.88&quot;                     
+## [247] &quot;HAIL 075&quot;                       &quot;HAIL 088&quot;                      
+## [249] &quot;HAIL 1.00&quot;                      &quot;HAIL 1.75&quot;                     
+## [251] &quot;HAIL 1.75)&quot;                     &quot;HAIL 100&quot;                      
+## [253] &quot;HAIL 125&quot;                       &quot;HAIL 150&quot;                      
+## [255] &quot;HAIL 175&quot;                       &quot;HAIL 200&quot;                      
+## [257] &quot;HAIL 225&quot;                       &quot;HAIL 275&quot;                      
+## [259] &quot;HAIL 450&quot;                       &quot;HAIL 75&quot;                       
+## [261] &quot;HAIL 80&quot;                        &quot;HAIL 88&quot;                       
+## [263] &quot;HAIL ALOFT&quot;                     &quot;HAIL DAMAGE&quot;                   
+## [265] &quot;HAIL FLOODING&quot;                  &quot;HAIL STORM&quot;                    
+## [267] &quot;Hail(0.75)&quot;                     &quot;HAIL/ICY ROADS&quot;                
+## [269] &quot;HAIL/WIND&quot;                      &quot;HAIL/WINDS&quot;                    
+## [271] &quot;HAILSTORM&quot;                      &quot;HAILSTORMS&quot;                    
+## [273] &quot;HARD FREEZE&quot;                    &quot;HAZARDOUS SURF&quot;                
+## [275] &quot;HEAT&quot;                           &quot;HEAT DROUGHT&quot;                  
+## [277] &quot;Heat Wave&quot;                      &quot;HEAT WAVE&quot;                     
+## [279] &quot;HEAT WAVE DROUGHT&quot;              &quot;HEAT WAVES&quot;                    
+## [281] &quot;HEAT/DROUGHT&quot;                   &quot;Heatburst&quot;                     
+## [283] &quot;HEAVY LAKE SNOW&quot;                &quot;HEAVY MIX&quot;                     
+## [285] &quot;HEAVY PRECIPATATION&quot;            &quot;Heavy Precipitation&quot;           
+## [287] &quot;HEAVY PRECIPITATION&quot;            &quot;Heavy rain&quot;                    
+## [289] &quot;Heavy Rain&quot;                     &quot;HEAVY RAIN&quot;                    
+## [291] &quot;HEAVY RAIN AND FLOOD&quot;           &quot;Heavy Rain and Wind&quot;           
+## [293] &quot;HEAVY RAIN EFFECTS&quot;             &quot;HEAVY RAIN/FLOODING&quot;           
+## [295] &quot;Heavy Rain/High Surf&quot;           &quot;HEAVY RAIN/LIGHTNING&quot;          
+## [297] &quot;HEAVY RAIN/MUDSLIDES/FLOOD&quot;     &quot;HEAVY RAIN/SEVERE WEATHER&quot;     
+## [299] &quot;HEAVY RAIN/SMALL STREAM URBAN&quot;  &quot;HEAVY RAIN/SNOW&quot;               
+## [301] &quot;HEAVY RAIN/URBAN FLOOD&quot;         &quot;HEAVY RAIN/WIND&quot;               
+## [303] &quot;HEAVY RAIN; URBAN FLOOD WINDS;&quot; &quot;HEAVY RAINFALL&quot;                
+## [305] &quot;HEAVY RAINS&quot;                    &quot;HEAVY RAINS/FLOODING&quot;          
+## [307] &quot;HEAVY SEAS&quot;                     &quot;HEAVY SHOWER&quot;                  
+## [309] &quot;HEAVY SHOWERS&quot;                  &quot;HEAVY SNOW&quot;                    
+## [311] &quot;HEAVY SNOW-SQUALLS&quot;             &quot;HEAVY SNOW   FREEZING RAIN&quot;    
+## [313] &quot;HEAVY SNOW &amp; ICE&quot;               &quot;HEAVY SNOW AND&quot;                
+## [315] &quot;HEAVY SNOW AND HIGH WINDS&quot;      &quot;HEAVY SNOW AND ICE&quot;            
+## [317] &quot;HEAVY SNOW AND ICE STORM&quot;       &quot;HEAVY SNOW AND STRONG WINDS&quot;   
+## [319] &quot;HEAVY SNOW ANDBLOWING SNOW&quot;     &quot;Heavy snow shower&quot;             
+## [321] &quot;HEAVY SNOW SQUALLS&quot;             &quot;HEAVY SNOW/BLIZZARD&quot;           
+## [323] &quot;HEAVY SNOW/BLIZZARD/AVALANCHE&quot;  &quot;HEAVY SNOW/BLOWING SNOW&quot;       
+## [325] &quot;HEAVY SNOW/FREEZING RAIN&quot;       &quot;HEAVY SNOW/HIGH&quot;               
+## [327] &quot;HEAVY SNOW/HIGH WIND&quot;           &quot;HEAVY SNOW/HIGH WINDS&quot;         
+## [329] &quot;HEAVY SNOW/HIGH WINDS &amp; FLOOD&quot;  &quot;HEAVY SNOW/HIGH WINDS/FREEZING&quot;
+## [331] &quot;HEAVY SNOW/ICE&quot;                 &quot;HEAVY SNOW/ICE STORM&quot;          
+## [333] &quot;HEAVY SNOW/SLEET&quot;               &quot;HEAVY SNOW/SQUALLS&quot;            
+## [335] &quot;HEAVY SNOW/WIND&quot;                &quot;HEAVY SNOW/WINTER STORM&quot;       
+## [337] &quot;HEAVY SNOWPACK&quot;                 &quot;Heavy Surf&quot;                    
+## [339] &quot;HEAVY SURF&quot;                     &quot;Heavy surf and wind&quot;           
+## [341] &quot;HEAVY SURF COASTAL FLOODING&quot;    &quot;HEAVY SURF/HIGH SURF&quot;          
+## [343] &quot;HEAVY SWELLS&quot;                   &quot;HEAVY WET SNOW&quot;                
+## [345] &quot;HIGH&quot;                           &quot;HIGH  SWELLS&quot;                  
+## [347] &quot;HIGH  WINDS&quot;                    &quot;HIGH SEAS&quot;                     
+## [349] &quot;High Surf&quot;                      &quot;HIGH SURF&quot;                     
+## [351] &quot;HIGH SURF ADVISORIES&quot;           &quot;HIGH SURF ADVISORY&quot;            
+## [353] &quot;HIGH SWELLS&quot;                    &quot;HIGH TEMPERATURE RECORD&quot;       
+## [355] &quot;HIGH TIDES&quot;                     &quot;HIGH WATER&quot;                    
+## [357] &quot;HIGH WAVES&quot;                     &quot;High Wind&quot;                     
+## [359] &quot;HIGH WIND&quot;                      &quot;HIGH WIND (G40)&quot;               
+## [361] &quot;HIGH WIND 48&quot;                   &quot;HIGH WIND 63&quot;                  
+## [363] &quot;HIGH WIND 70&quot;                   &quot;HIGH WIND AND HEAVY SNOW&quot;      
+## [365] &quot;HIGH WIND AND HIGH TIDES&quot;       &quot;HIGH WIND AND SEAS&quot;            
+## [367] &quot;HIGH WIND DAMAGE&quot;               &quot;HIGH WIND/ BLIZZARD&quot;           
+## [369] &quot;HIGH WIND/BLIZZARD&quot;             &quot;HIGH WIND/BLIZZARD/FREEZING RA&quot;
+## [371] &quot;HIGH WIND/HEAVY SNOW&quot;           &quot;HIGH WIND/LOW WIND CHILL&quot;      
+## [373] &quot;HIGH WIND/SEAS&quot;                 &quot;HIGH WIND/WIND CHILL&quot;          
+## [375] &quot;HIGH WIND/WIND CHILL/BLIZZARD&quot;  &quot;HIGH WINDS&quot;                    
+## [377] &quot;HIGH WINDS 55&quot;                  &quot;HIGH WINDS 57&quot;                 
+## [379] &quot;HIGH WINDS 58&quot;                  &quot;HIGH WINDS 63&quot;                 
+## [381] &quot;HIGH WINDS 66&quot;                  &quot;HIGH WINDS 67&quot;                 
+## [383] &quot;HIGH WINDS 73&quot;                  &quot;HIGH WINDS 76&quot;                 
+## [385] &quot;HIGH WINDS 80&quot;                  &quot;HIGH WINDS 82&quot;                 
+## [387] &quot;HIGH WINDS AND WIND CHILL&quot;      &quot;HIGH WINDS DUST STORM&quot;         
+## [389] &quot;HIGH WINDS HEAVY RAINS&quot;         &quot;HIGH WINDS/&quot;                   
+## [391] &quot;HIGH WINDS/COASTAL FLOOD&quot;       &quot;HIGH WINDS/COLD&quot;               
+## [393] &quot;HIGH WINDS/FLOODING&quot;            &quot;HIGH WINDS/HEAVY RAIN&quot;         
+## [395] &quot;HIGH WINDS/SNOW&quot;                &quot;HIGHWAY FLOODING&quot;              
+## [397] &quot;Hot and Dry&quot;                    &quot;HOT PATTERN&quot;                   
+## [399] &quot;HOT SPELL&quot;                      &quot;HOT WEATHER&quot;                   
+## [401] &quot;HOT/DRY PATTERN&quot;                &quot;HURRICANE&quot;                     
+## [403] &quot;HURRICANE-GENERATED SWELLS&quot;     &quot;Hurricane Edouard&quot;             
+## [405] &quot;HURRICANE EMILY&quot;                &quot;HURRICANE ERIN&quot;                
+## [407] &quot;HURRICANE FELIX&quot;                &quot;HURRICANE GORDON&quot;              
+## [409] &quot;HURRICANE OPAL&quot;                 &quot;HURRICANE OPAL/HIGH WINDS&quot;     
+## [411] &quot;HURRICANE/TYPHOON&quot;              &quot;HVY RAIN&quot;                      
+## [413] &quot;HYPERTHERMIA/EXPOSURE&quot;          &quot;HYPOTHERMIA&quot;                   
+## [415] &quot;Hypothermia/Exposure&quot;           &quot;HYPOTHERMIA/EXPOSURE&quot;          
+## [417] &quot;ICE&quot;                            &quot;ICE AND SNOW&quot;                  
+## [419] &quot;ICE FLOES&quot;                      &quot;Ice Fog&quot;                       
+## [421] &quot;ICE JAM&quot;                        &quot;Ice jam flood (minor&quot;          
+## [423] &quot;ICE JAM FLOODING&quot;               &quot;ICE ON ROAD&quot;                   
+## [425] &quot;ICE PELLETS&quot;                    &quot;ICE ROADS&quot;                     
+## [427] &quot;ICE STORM&quot;                      &quot;ICE STORM AND SNOW&quot;            
+## [429] &quot;ICE STORM/FLASH FLOOD&quot;          &quot;Ice/Snow&quot;                      
+## [431] &quot;ICE/SNOW&quot;                       &quot;ICE/STRONG WINDS&quot;              
+## [433] &quot;Icestorm/Blizzard&quot;              &quot;Icy Roads&quot;                     
+## [435] &quot;ICY ROADS&quot;                      &quot;LACK OF SNOW&quot;                  
+## [437] &quot;LAKE-EFFECT SNOW&quot;               &quot;Lake Effect Snow&quot;              
+## [439] &quot;LAKE EFFECT SNOW&quot;               &quot;LAKE FLOOD&quot;                    
+## [441] &quot;LAKESHORE FLOOD&quot;                &quot;LANDSLIDE&quot;                     
+## [443] &quot;LANDSLIDE/URBAN FLOOD&quot;          &quot;LANDSLIDES&quot;                    
+## [445] &quot;Landslump&quot;                      &quot;LANDSLUMP&quot;                     
+## [447] &quot;LANDSPOUT&quot;                      &quot;LARGE WALL CLOUD&quot;              
+## [449] &quot;Late-season Snowfall&quot;           &quot;LATE FREEZE&quot;                   
+## [451] &quot;LATE SEASON HAIL&quot;               &quot;LATE SEASON SNOW&quot;              
+## [453] &quot;Late Season Snowfall&quot;           &quot;LATE SNOW&quot;                     
+## [455] &quot;LIGHT FREEZING RAIN&quot;            &quot;Light snow&quot;                    
+## [457] &quot;Light Snow&quot;                     &quot;LIGHT SNOW&quot;                    
+## [459] &quot;LIGHT SNOW AND SLEET&quot;           &quot;Light Snow/Flurries&quot;           
+## [461] &quot;LIGHT SNOW/FREEZING PRECIP&quot;     &quot;Light Snowfall&quot;                
+## [463] &quot;LIGHTING&quot;                       &quot;LIGHTNING&quot;                     
+## [465] &quot;LIGHTNING  WAUSEON&quot;             &quot;LIGHTNING AND HEAVY RAIN&quot;      
+## [467] &quot;LIGHTNING AND THUNDERSTORM WIN&quot; &quot;LIGHTNING AND WINDS&quot;           
+## [469] &quot;LIGHTNING DAMAGE&quot;               &quot;LIGHTNING FIRE&quot;                
+## [471] &quot;LIGHTNING INJURY&quot;               &quot;LIGHTNING THUNDERSTORM WINDS&quot;  
+## [473] &quot;LIGHTNING THUNDERSTORM WINDSS&quot;  &quot;LIGHTNING.&quot;                    
+## [475] &quot;LIGHTNING/HEAVY RAIN&quot;           &quot;LIGNTNING&quot;                     
+## [477] &quot;LOCAL FLASH FLOOD&quot;              &quot;LOCAL FLOOD&quot;                   
+## [479] &quot;LOCALLY HEAVY RAIN&quot;             &quot;LOW TEMPERATURE&quot;               
+## [481] &quot;LOW TEMPERATURE RECORD&quot;         &quot;LOW WIND CHILL&quot;                
+## [483] &quot;MAJOR FLOOD&quot;                    &quot;Marine Accident&quot;               
+## [485] &quot;MARINE HAIL&quot;                    &quot;MARINE HIGH WIND&quot;              
+## [487] &quot;MARINE MISHAP&quot;                  &quot;MARINE STRONG WIND&quot;            
+## [489] &quot;MARINE THUNDERSTORM WIND&quot;       &quot;MARINE TSTM WIND&quot;              
+## [491] &quot;Metro Storm, May 26&quot;            &quot;Microburst&quot;                    
+## [493] &quot;MICROBURST&quot;                     &quot;MICROBURST WINDS&quot;              
+## [495] &quot;Mild and Dry Pattern&quot;           &quot;MILD PATTERN&quot;                  
+## [497] &quot;MILD/DRY PATTERN&quot;               &quot;MINOR FLOOD&quot;                   
+## [499] &quot;Minor Flooding&quot;                 &quot;MINOR FLOODING&quot;                
+## [501] &quot;MIXED PRECIP&quot;                   &quot;Mixed Precipitation&quot;           
+## [503] &quot;MIXED PRECIPITATION&quot;            &quot;MODERATE SNOW&quot;                 
+## [505] &quot;MODERATE SNOWFALL&quot;              &quot;MONTHLY PRECIPITATION&quot;         
+## [507] &quot;Monthly Rainfall&quot;               &quot;MONTHLY RAINFALL&quot;              
+## [509] &quot;Monthly Snowfall&quot;               &quot;MONTHLY SNOWFALL&quot;              
+## [511] &quot;MONTHLY TEMPERATURE&quot;            &quot;Mountain Snows&quot;                
+## [513] &quot;MUD SLIDE&quot;                      &quot;MUD SLIDES&quot;                    
+## [515] &quot;MUD SLIDES URBAN FLOODING&quot;      &quot;MUD/ROCK SLIDE&quot;                
+## [517] &quot;Mudslide&quot;                       &quot;MUDSLIDE&quot;                      
+## [519] &quot;MUDSLIDE/LANDSLIDE&quot;             &quot;Mudslides&quot;                     
+## [521] &quot;MUDSLIDES&quot;                      &quot;NEAR RECORD SNOW&quot;              
+## [523] &quot;No Severe Weather&quot;              &quot;NON-SEVERE WIND DAMAGE&quot;        
+## [525] &quot;NON-TSTM WIND&quot;                  &quot;NON SEVERE HAIL&quot;               
+## [527] &quot;NON TSTM WIND&quot;                  &quot;NONE&quot;                          
+## [529] &quot;NORMAL PRECIPITATION&quot;           &quot;NORTHERN LIGHTS&quot;               
+## [531] &quot;Other&quot;                          &quot;OTHER&quot;                         
+## [533] &quot;PATCHY DENSE FOG&quot;               &quot;PATCHY ICE&quot;                    
+## [535] &quot;Prolong Cold&quot;                   &quot;PROLONG COLD&quot;                  
+## [537] &quot;PROLONG COLD/SNOW&quot;              &quot;PROLONG WARMTH&quot;                
+## [539] &quot;PROLONGED RAIN&quot;                 &quot;RAIN&quot;                          
+## [541] &quot;RAIN (HEAVY)&quot;                   &quot;RAIN AND WIND&quot;                 
+## [543] &quot;Rain Damage&quot;                    &quot;RAIN/SNOW&quot;                     
+## [545] &quot;RAIN/WIND&quot;                      &quot;RAINSTORM&quot;                     
+## [547] &quot;RAPIDLY RISING WATER&quot;           &quot;RECORD  COLD&quot;                  
+## [549] &quot;Record Cold&quot;                    &quot;RECORD COLD&quot;                   
+## [551] &quot;RECORD COLD AND HIGH WIND&quot;      &quot;RECORD COLD/FROST&quot;             
+## [553] &quot;RECORD COOL&quot;                    &quot;Record dry month&quot;              
+## [555] &quot;RECORD DRYNESS&quot;                 &quot;Record Heat&quot;                   
+## [557] &quot;RECORD HEAT&quot;                    &quot;RECORD HEAT WAVE&quot;              
+## [559] &quot;Record High&quot;                    &quot;RECORD HIGH&quot;                   
+## [561] &quot;RECORD HIGH TEMPERATURE&quot;        &quot;RECORD HIGH TEMPERATURES&quot;      
+## [563] &quot;RECORD LOW&quot;                     &quot;RECORD LOW RAINFALL&quot;           
+## [565] &quot;Record May Snow&quot;                &quot;RECORD PRECIPITATION&quot;          
+## [567] &quot;RECORD RAINFALL&quot;                &quot;RECORD SNOW&quot;                   
+## [569] &quot;RECORD SNOW/COLD&quot;               &quot;RECORD SNOWFALL&quot;               
+## [571] &quot;Record temperature&quot;             &quot;RECORD TEMPERATURE&quot;            
+## [573] &quot;Record Temperatures&quot;            &quot;RECORD TEMPERATURES&quot;           
+## [575] &quot;RECORD WARM&quot;                    &quot;RECORD WARM TEMPS.&quot;            
+## [577] &quot;Record Warmth&quot;                  &quot;RECORD WARMTH&quot;                 
+## [579] &quot;Record Winter Snow&quot;             &quot;RECORD/EXCESSIVE HEAT&quot;         
+## [581] &quot;RECORD/EXCESSIVE RAINFALL&quot;      &quot;RED FLAG CRITERIA&quot;             
+## [583] &quot;RED FLAG FIRE WX&quot;               &quot;REMNANTS OF FLOYD&quot;             
+## [585] &quot;RIP CURRENT&quot;                    &quot;RIP CURRENTS&quot;                  
+## [587] &quot;RIP CURRENTS HEAVY SURF&quot;        &quot;RIP CURRENTS/HEAVY SURF&quot;       
+## [589] &quot;RIVER AND STREAM FLOOD&quot;         &quot;RIVER FLOOD&quot;                   
+## [591] &quot;River Flooding&quot;                 &quot;RIVER FLOODING&quot;                
+## [593] &quot;ROCK SLIDE&quot;                     &quot;ROGUE WAVE&quot;                    
+## [595] &quot;ROTATING WALL CLOUD&quot;            &quot;ROUGH SEAS&quot;                    
+## [597] &quot;ROUGH SURF&quot;                     &quot;RURAL FLOOD&quot;                   
+## [599] &quot;Saharan Dust&quot;                   &quot;SAHARAN DUST&quot;                  
+## [601] &quot;Seasonal Snowfall&quot;              &quot;SEICHE&quot;                        
+## [603] &quot;SEVERE COLD&quot;                    &quot;SEVERE THUNDERSTORM&quot;           
+## [605] &quot;SEVERE THUNDERSTORM WINDS&quot;      &quot;SEVERE THUNDERSTORMS&quot;          
+## [607] &quot;SEVERE TURBULENCE&quot;              &quot;SLEET&quot;                         
+## [609] &quot;SLEET &amp; FREEZING RAIN&quot;          &quot;SLEET STORM&quot;                   
+## [611] &quot;SLEET/FREEZING RAIN&quot;            &quot;SLEET/ICE STORM&quot;               
+## [613] &quot;SLEET/RAIN/SNOW&quot;                &quot;SLEET/SNOW&quot;                    
+## [615] &quot;small hail&quot;                     &quot;Small Hail&quot;                    
+## [617] &quot;SMALL HAIL&quot;                     &quot;SMALL STREAM&quot;                  
+## [619] &quot;SMALL STREAM AND&quot;               &quot;SMALL STREAM AND URBAN FLOOD&quot;  
+## [621] &quot;SMALL STREAM AND URBAN FLOODIN&quot; &quot;SMALL STREAM FLOOD&quot;            
+## [623] &quot;SMALL STREAM FLOODING&quot;          &quot;SMALL STREAM URBAN FLOOD&quot;      
+## [625] &quot;SMALL STREAM/URBAN FLOOD&quot;       &quot;Sml Stream Fld&quot;                
+## [627] &quot;SMOKE&quot;                          &quot;Snow&quot;                          
+## [629] &quot;SNOW&quot;                           &quot;SNOW- HIGH WIND- WIND CHILL&quot;   
+## [631] &quot;Snow Accumulation&quot;              &quot;SNOW ACCUMULATION&quot;             
+## [633] &quot;SNOW ADVISORY&quot;                  &quot;SNOW AND COLD&quot;                 
+## [635] &quot;SNOW AND HEAVY SNOW&quot;            &quot;Snow and Ice&quot;                  
+## [637] &quot;SNOW AND ICE&quot;                   &quot;SNOW AND ICE STORM&quot;            
+## [639] &quot;Snow and sleet&quot;                 &quot;SNOW AND SLEET&quot;                
+## [641] &quot;SNOW AND WIND&quot;                  &quot;SNOW DROUGHT&quot;                  
+## [643] &quot;SNOW FREEZING RAIN&quot;             &quot;SNOW SHOWERS&quot;                  
+## [645] &quot;SNOW SLEET&quot;                     &quot;SNOW SQUALL&quot;                   
+## [647] &quot;Snow squalls&quot;                   &quot;Snow Squalls&quot;                  
+## [649] &quot;SNOW SQUALLS&quot;                   &quot;SNOW/ BITTER COLD&quot;             
+## [651] &quot;SNOW/ ICE&quot;                      &quot;SNOW/BLOWING SNOW&quot;             
+## [653] &quot;SNOW/COLD&quot;                      &quot;SNOW/FREEZING RAIN&quot;            
+## [655] &quot;SNOW/HEAVY SNOW&quot;                &quot;SNOW/HIGH WINDS&quot;               
+## [657] &quot;SNOW/ICE&quot;                       &quot;SNOW/ICE STORM&quot;                
+## [659] &quot;SNOW/RAIN&quot;                      &quot;SNOW/RAIN/SLEET&quot;               
+## [661] &quot;SNOW/SLEET&quot;                     &quot;SNOW/SLEET/FREEZING RAIN&quot;      
+## [663] &quot;SNOW/SLEET/RAIN&quot;                &quot;SNOW\\COLD&quot;                    
+## [665] &quot;SNOWFALL RECORD&quot;                &quot;SNOWMELT FLOODING&quot;             
+## [667] &quot;SNOWSTORM&quot;                      &quot;SOUTHEAST&quot;                     
+## [669] &quot;STORM FORCE WINDS&quot;              &quot;STORM SURGE&quot;                   
+## [671] &quot;STORM SURGE/TIDE&quot;               &quot;STREAM FLOODING&quot;               
+## [673] &quot;STREET FLOOD&quot;                   &quot;STREET FLOODING&quot;               
+## [675] &quot;Strong Wind&quot;                    &quot;STRONG WIND&quot;                   
+## [677] &quot;STRONG WIND GUST&quot;               &quot;Strong winds&quot;                  
+## [679] &quot;Strong Winds&quot;                   &quot;STRONG WINDS&quot;                  
+## [681] &quot;Summary August 10&quot;              &quot;Summary August 11&quot;             
+## [683] &quot;Summary August 17&quot;              &quot;Summary August 2-3&quot;            
+## [685] &quot;Summary August 21&quot;              &quot;Summary August 28&quot;             
+## [687] &quot;Summary August 4&quot;               &quot;Summary August 7&quot;              
+## [689] &quot;Summary August 9&quot;               &quot;Summary Jan 17&quot;                
+## [691] &quot;Summary July 23-24&quot;             &quot;Summary June 18-19&quot;            
+## [693] &quot;Summary June 5-6&quot;               &quot;Summary June 6&quot;                
+## [695] &quot;Summary of April 12&quot;            &quot;Summary of April 13&quot;           
+## [697] &quot;Summary of April 21&quot;            &quot;Summary of April 27&quot;           
+## [699] &quot;Summary of April 3rd&quot;           &quot;Summary of August 1&quot;           
+## [701] &quot;Summary of July 11&quot;             &quot;Summary of July 2&quot;             
+## [703] &quot;Summary of July 22&quot;             &quot;Summary of July 26&quot;            
+## [705] &quot;Summary of July 29&quot;             &quot;Summary of July 3&quot;             
+## [707] &quot;Summary of June 10&quot;             &quot;Summary of June 11&quot;            
+## [709] &quot;Summary of June 12&quot;             &quot;Summary of June 13&quot;            
+## [711] &quot;Summary of June 15&quot;             &quot;Summary of June 16&quot;            
+## [713] &quot;Summary of June 18&quot;             &quot;Summary of June 23&quot;            
+## [715] &quot;Summary of June 24&quot;             &quot;Summary of June 3&quot;             
+## [717] &quot;Summary of June 30&quot;             &quot;Summary of June 4&quot;             
+## [719] &quot;Summary of June 6&quot;              &quot;Summary of March 14&quot;           
+## [721] &quot;Summary of March 23&quot;            &quot;Summary of March 24&quot;           
+## [723] &quot;SUMMARY OF MARCH 24-25&quot;         &quot;SUMMARY OF MARCH 27&quot;           
+## [725] &quot;SUMMARY OF MARCH 29&quot;            &quot;Summary of May 10&quot;             
+## [727] &quot;Summary of May 13&quot;              &quot;Summary of May 14&quot;             
+## [729] &quot;Summary of May 22&quot;              &quot;Summary of May 22 am&quot;          
+## [731] &quot;Summary of May 22 pm&quot;           &quot;Summary of May 26 am&quot;          
+## [733] &quot;Summary of May 26 pm&quot;           &quot;Summary of May 31 am&quot;          
+## [735] &quot;Summary of May 31 pm&quot;           &quot;Summary of May 9-10&quot;           
+## [737] &quot;Summary Sept. 25-26&quot;            &quot;Summary September 20&quot;          
+## [739] &quot;Summary September 23&quot;           &quot;Summary September 3&quot;           
+## [741] &quot;Summary September 4&quot;            &quot;Summary: Nov. 16&quot;              
+## [743] &quot;Summary: Nov. 6-7&quot;              &quot;Summary: Oct. 20-21&quot;           
+## [745] &quot;Summary: October 31&quot;            &quot;Summary: Sept. 18&quot;             
+## [747] &quot;Temperature record&quot;             &quot;THUDERSTORM WINDS&quot;             
+## [749] &quot;THUNDEERSTORM WINDS&quot;            &quot;THUNDERESTORM WINDS&quot;           
+## [751] &quot;THUNDERSNOW&quot;                    &quot;Thundersnow shower&quot;            
+## [753] &quot;THUNDERSTORM&quot;                   &quot;THUNDERSTORM  WINDS&quot;           
+## [755] &quot;THUNDERSTORM DAMAGE&quot;            &quot;THUNDERSTORM DAMAGE TO&quot;        
+## [757] &quot;THUNDERSTORM HAIL&quot;              &quot;THUNDERSTORM W INDS&quot;           
+## [759] &quot;Thunderstorm Wind&quot;              &quot;THUNDERSTORM WIND&quot;             
+## [761] &quot;THUNDERSTORM WIND (G40)&quot;        &quot;THUNDERSTORM WIND 50&quot;          
+## [763] &quot;THUNDERSTORM WIND 52&quot;           &quot;THUNDERSTORM WIND 56&quot;          
+## [765] &quot;THUNDERSTORM WIND 59&quot;           &quot;THUNDERSTORM WIND 59 MPH&quot;      
+## [767] &quot;THUNDERSTORM WIND 59 MPH.&quot;      &quot;THUNDERSTORM WIND 60 MPH&quot;      
+## [769] &quot;THUNDERSTORM WIND 65 MPH&quot;       &quot;THUNDERSTORM WIND 65MPH&quot;       
+## [771] &quot;THUNDERSTORM WIND 69&quot;           &quot;THUNDERSTORM WIND 98 MPH&quot;      
+## [773] &quot;THUNDERSTORM WIND G50&quot;          &quot;THUNDERSTORM WIND G51&quot;         
+## [775] &quot;THUNDERSTORM WIND G52&quot;          &quot;THUNDERSTORM WIND G55&quot;         
+## [777] &quot;THUNDERSTORM WIND G60&quot;          &quot;THUNDERSTORM WIND G61&quot;         
+## [779] &quot;THUNDERSTORM WIND TREES&quot;        &quot;THUNDERSTORM WIND.&quot;            
+## [781] &quot;THUNDERSTORM WIND/ TREE&quot;        &quot;THUNDERSTORM WIND/ TREES&quot;      
+## [783] &quot;THUNDERSTORM WIND/AWNING&quot;       &quot;THUNDERSTORM WIND/HAIL&quot;        
+## [785] &quot;THUNDERSTORM WIND/LIGHTNING&quot;    &quot;THUNDERSTORM WINDS&quot;            
+## [787] &quot;THUNDERSTORM WINDS      LE CEN&quot; &quot;THUNDERSTORM WINDS 13&quot;         
+## [789] &quot;THUNDERSTORM WINDS 2&quot;           &quot;THUNDERSTORM WINDS 50&quot;         
+## [791] &quot;THUNDERSTORM WINDS 52&quot;          &quot;THUNDERSTORM WINDS 53&quot;         
+## [793] &quot;THUNDERSTORM WINDS 60&quot;          &quot;THUNDERSTORM WINDS 61&quot;         
+## [795] &quot;THUNDERSTORM WINDS 62&quot;          &quot;THUNDERSTORM WINDS 63 MPH&quot;     
+## [797] &quot;THUNDERSTORM WINDS AND&quot;         &quot;THUNDERSTORM WINDS FUNNEL CLOU&quot;
+## [799] &quot;THUNDERSTORM WINDS G&quot;           &quot;THUNDERSTORM WINDS G60&quot;        
+## [801] &quot;THUNDERSTORM WINDS HAIL&quot;        &quot;THUNDERSTORM WINDS HEAVY RAIN&quot; 
+## [803] &quot;THUNDERSTORM WINDS LIGHTNING&quot;   &quot;THUNDERSTORM WINDS SMALL STREA&quot;
+## [805] &quot;THUNDERSTORM WINDS URBAN FLOOD&quot; &quot;THUNDERSTORM WINDS.&quot;           
+## [807] &quot;THUNDERSTORM WINDS/ FLOOD&quot;      &quot;THUNDERSTORM WINDS/ HAIL&quot;      
+## [809] &quot;THUNDERSTORM WINDS/FLASH FLOOD&quot; &quot;THUNDERSTORM WINDS/FLOODING&quot;   
+## [811] &quot;THUNDERSTORM WINDS/FUNNEL CLOU&quot; &quot;THUNDERSTORM WINDS/HAIL&quot;       
+## [813] &quot;THUNDERSTORM WINDS/HEAVY RAIN&quot;  &quot;THUNDERSTORM WINDS53&quot;          
+## [815] &quot;THUNDERSTORM WINDSHAIL&quot;         &quot;THUNDERSTORM WINDSS&quot;           
+## [817] &quot;THUNDERSTORM WINS&quot;              &quot;THUNDERSTORMS&quot;                 
+## [819] &quot;THUNDERSTORMS WIND&quot;             &quot;THUNDERSTORMS WINDS&quot;           
+## [821] &quot;THUNDERSTORMW&quot;                  &quot;THUNDERSTORMW 50&quot;              
+## [823] &quot;THUNDERSTORMW WINDS&quot;            &quot;THUNDERSTORMWINDS&quot;             
+## [825] &quot;THUNDERSTROM WIND&quot;              &quot;THUNDERSTROM WINDS&quot;            
+## [827] &quot;THUNDERTORM WINDS&quot;              &quot;THUNDERTSORM WIND&quot;             
+## [829] &quot;THUNDESTORM WINDS&quot;              &quot;THUNERSTORM WINDS&quot;             
+## [831] &quot;TIDAL FLOOD&quot;                    &quot;Tidal Flooding&quot;                
+## [833] &quot;TIDAL FLOODING&quot;                 &quot;TORNADO&quot;                       
+## [835] &quot;TORNADO DEBRIS&quot;                 &quot;TORNADO F0&quot;                    
+## [837] &quot;TORNADO F1&quot;                     &quot;TORNADO F2&quot;                    
+## [839] &quot;TORNADO F3&quot;                     &quot;TORNADO/WATERSPOUT&quot;            
+## [841] &quot;TORNADOES&quot;                      &quot;TORNADOES, TSTM WIND, HAIL&quot;    
+## [843] &quot;TORNADOS&quot;                       &quot;TORNDAO&quot;                       
+## [845] &quot;TORRENTIAL RAIN&quot;                &quot;Torrential Rainfall&quot;           
+## [847] &quot;TROPICAL DEPRESSION&quot;            &quot;TROPICAL STORM&quot;                
+## [849] &quot;TROPICAL STORM ALBERTO&quot;         &quot;TROPICAL STORM DEAN&quot;           
+## [851] &quot;TROPICAL STORM GORDON&quot;          &quot;TROPICAL STORM JERRY&quot;          
+## [853] &quot;TSTM&quot;                           &quot;TSTM HEAVY RAIN&quot;               
+## [855] &quot;Tstm Wind&quot;                      &quot;TSTM WIND&quot;                     
+## [857] &quot;TSTM WIND  (G45)&quot;               &quot;TSTM WIND (41)&quot;                
+## [859] &quot;TSTM WIND (G35)&quot;                &quot;TSTM WIND (G40)&quot;               
+## [861] &quot;TSTM WIND (G45)&quot;                &quot;TSTM WIND 40&quot;                  
+## [863] &quot;TSTM WIND 45&quot;                   &quot;TSTM WIND 50&quot;                  
+## [865] &quot;TSTM WIND 51&quot;                   &quot;TSTM WIND 52&quot;                  
+## [867] &quot;TSTM WIND 55&quot;                   &quot;TSTM WIND 65)&quot;                 
+## [869] &quot;TSTM WIND AND LIGHTNING&quot;        &quot;TSTM WIND DAMAGE&quot;              
+## [871] &quot;TSTM WIND G45&quot;                  &quot;TSTM WIND G58&quot;                 
+## [873] &quot;TSTM WIND/HAIL&quot;                 &quot;TSTM WINDS&quot;                    
+## [875] &quot;TSTM WND&quot;                       &quot;TSTMW&quot;                         
+## [877] &quot;TSUNAMI&quot;                        &quot;TUNDERSTORM WIND&quot;              
+## [879] &quot;TYPHOON&quot;                        &quot;Unseasonable Cold&quot;             
+## [881] &quot;UNSEASONABLY COLD&quot;              &quot;UNSEASONABLY COOL&quot;             
+## [883] &quot;UNSEASONABLY COOL &amp; WET&quot;        &quot;UNSEASONABLY DRY&quot;              
+## [885] &quot;UNSEASONABLY HOT&quot;               &quot;UNSEASONABLY WARM&quot;             
+## [887] &quot;UNSEASONABLY WARM &amp; WET&quot;        &quot;UNSEASONABLY WARM AND DRY&quot;     
+## [889] &quot;UNSEASONABLY WARM YEAR&quot;         &quot;UNSEASONABLY WARM/WET&quot;         
+## [891] &quot;UNSEASONABLY WET&quot;               &quot;UNSEASONAL LOW TEMP&quot;           
+## [893] &quot;UNSEASONAL RAIN&quot;                &quot;UNUSUAL WARMTH&quot;                
+## [895] &quot;UNUSUAL/RECORD WARMTH&quot;          &quot;UNUSUALLY COLD&quot;                
+## [897] &quot;UNUSUALLY LATE SNOW&quot;            &quot;UNUSUALLY WARM&quot;                
+## [899] &quot;URBAN AND SMALL&quot;                &quot;URBAN AND SMALL STREAM&quot;        
+## [901] &quot;URBAN AND SMALL STREAM FLOOD&quot;   &quot;URBAN AND SMALL STREAM FLOODIN&quot;
+## [903] &quot;Urban flood&quot;                    &quot;Urban Flood&quot;                   
+## [905] &quot;URBAN FLOOD&quot;                    &quot;URBAN FLOOD LANDSLIDE&quot;         
+## [907] &quot;Urban Flooding&quot;                 &quot;URBAN FLOODING&quot;                
+## [909] &quot;URBAN FLOODS&quot;                   &quot;URBAN SMALL&quot;                   
+## [911] &quot;URBAN SMALL STREAM FLOOD&quot;       &quot;URBAN/SMALL&quot;                   
+## [913] &quot;URBAN/SMALL FLOODING&quot;           &quot;URBAN/SMALL STREAM&quot;            
+## [915] &quot;URBAN/SMALL STREAM  FLOOD&quot;      &quot;URBAN/SMALL STREAM FLOOD&quot;      
+## [917] &quot;URBAN/SMALL STREAM FLOODING&quot;    &quot;URBAN/SMALL STRM FLDG&quot;         
+## [919] &quot;URBAN/SML STREAM FLD&quot;           &quot;URBAN/SML STREAM FLDG&quot;         
+## [921] &quot;URBAN/STREET FLOODING&quot;          &quot;VERY DRY&quot;                      
+## [923] &quot;VERY WARM&quot;                      &quot;VOG&quot;                           
+## [925] &quot;Volcanic Ash&quot;                   &quot;VOLCANIC ASH&quot;                  
+## [927] &quot;Volcanic Ash Plume&quot;             &quot;VOLCANIC ASHFALL&quot;              
+## [929] &quot;VOLCANIC ERUPTION&quot;              &quot;WAKE LOW WIND&quot;                 
+## [931] &quot;WALL CLOUD&quot;                     &quot;WALL CLOUD/FUNNEL CLOUD&quot;       
+## [933] &quot;WARM DRY CONDITIONS&quot;            &quot;WARM WEATHER&quot;                  
+## [935] &quot;WATER SPOUT&quot;                    &quot;WATERSPOUT&quot;                    
+## [937] &quot;WATERSPOUT-&quot;                    &quot;WATERSPOUT-TORNADO&quot;            
+## [939] &quot;WATERSPOUT FUNNEL CLOUD&quot;        &quot;WATERSPOUT TORNADO&quot;            
+## [941] &quot;WATERSPOUT/&quot;                    &quot;WATERSPOUT/ TORNADO&quot;           
+## [943] &quot;WATERSPOUT/TORNADO&quot;             &quot;WATERSPOUTS&quot;                   
+## [945] &quot;WAYTERSPOUT&quot;                    &quot;wet micoburst&quot;                 
+## [947] &quot;WET MICROBURST&quot;                 &quot;Wet Month&quot;                     
+## [949] &quot;WET SNOW&quot;                       &quot;WET WEATHER&quot;                   
+## [951] &quot;Wet Year&quot;                       &quot;Whirlwind&quot;                     
+## [953] &quot;WHIRLWIND&quot;                      &quot;WILD FIRES&quot;                    
+## [955] &quot;WILD/FOREST FIRE&quot;               &quot;WILD/FOREST FIRES&quot;             
+## [957] &quot;WILDFIRE&quot;                       &quot;WILDFIRES&quot;                     
+## [959] &quot;Wind&quot;                           &quot;WIND&quot;                          
+## [961] &quot;WIND ADVISORY&quot;                  &quot;WIND AND WAVE&quot;                 
+## [963] &quot;WIND CHILL&quot;                     &quot;WIND CHILL/HIGH WIND&quot;          
+## [965] &quot;Wind Damage&quot;                    &quot;WIND DAMAGE&quot;                   
+## [967] &quot;WIND GUSTS&quot;                     &quot;WIND STORM&quot;                    
+## [969] &quot;WIND/HAIL&quot;                      &quot;WINDS&quot;                         
+## [971] &quot;WINTER MIX&quot;                     &quot;WINTER STORM&quot;                  
+## [973] &quot;WINTER STORM HIGH WINDS&quot;        &quot;WINTER STORM/HIGH WIND&quot;        
+## [975] &quot;WINTER STORM/HIGH WINDS&quot;        &quot;WINTER STORMS&quot;                 
+## [977] &quot;Winter Weather&quot;                 &quot;WINTER WEATHER&quot;                
+## [979] &quot;WINTER WEATHER MIX&quot;             &quot;WINTER WEATHER/MIX&quot;            
+## [981] &quot;WINTERY MIX&quot;                    &quot;Wintry mix&quot;                    
+## [983] &quot;Wintry Mix&quot;                     &quot;WINTRY MIX&quot;                    
+## [985] &quot;WND&quot;
+</code></pre>
+
+<h3>C. Results</h3>
+
+<h5>C.1 To view the events that are most harmful to population</h5>
+
+<p>We use the FATALITIES parameter to consider event harmful to population. Here lets aggregate all fatalities numbers to give a sum of fatalities.</p>
+
+<p>But first the FATALITIS parameter need to be made numeric otherwise the aggregate wont work.Both steps below.</p>
+
+<pre><code class="r">readData$FATALITIES &lt;- as.numeric(readData$FATALITIES)
+fatalitiesData&lt;-aggregate(FATALITIES~EVTYPE, data=readData, FUN=sum)
+</code></pre>
+
+<h5>C.2 Lets view the top 15 rows</h5>
+
+<p>First we sort the fatalitiesData in order of number of fatalities in descending order.</p>
+
+<pre><code class="r">fatalitiesData&lt;-fatalitiesData[order(fatalitiesData$FATALITIES, decreasing=TRUE), ]
+</code></pre>
+
+<p>Now construct plot ; Flip coordinate() is used as per <a href="http://docs.ggplot2.org/0.9.3.1/geom_bar.html">http://docs.ggplot2.org/0.9.3.1/geom_bar.html</a></p>
+
+<pre><code class="r">g&lt;-ggplot(fatalitiesData[1:15,], aes(EVTYPE,FATALITIES))
+g&lt;-g+geom_bar(stat=&quot;identity&quot;)+ xlab(&quot;Event&quot;)+ ylab(&quot;Fatalities&quot;) + ggtitle(&quot;Top 15 Fatalities caused by noted events&quot;) + coord_flip()
+print(g)
+</code></pre>
+
+<p><img src="data:image/png;base64,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" alt="plot of chunk unnamed-chunk-7"/> </p>
+
+<p>This shows that highest fatalities are caused by TORNADO related events followed by EXCESSIVE HEAT related events.</p>
+
+<h5>C.3 Identifying Economic Impacts</h5>
+
+<p>As per the doc provided at</p>
+
+<p><em>* <a href="https://class.coursera.org/repdata-013/forum/thread?thread_id=48">https://class.coursera.org/repdata-013/forum/thread?thread_id=48</a> *</em></p>
+
+<p>THe PROPDMG/PROPDMGEXP seem to be the right fields to decide the damage.
+PROPDMG is the coefficient for the magnitudes in PROPDMGEXP which are: </p>
+
+<pre><code class="r">unique(readData$PROPDMG)
+</code></pre>
+
+<pre><code>##    [1]   25.00    2.50  250.00    0.00    0.03    0.25    5.00    0.10
+##    [9]   50.00  500.00   48.00   20.00    2.00   35.00    3.00    0.50
+##   [17]  900.00    1.00    4.00   10.00    1.50   45.00    0.20   12.00
+##   [25]    8.00   22.00   55.00   40.00   14.00   85.00   42.00   15.00
+##   [33]  100.00   30.00    0.05   38.00   80.00   18.00    0.65    6.00
+##   [41]    0.30   24.00   32.00    7.00   28.00   70.00   95.00   65.00
+##   [49]    0.40   90.00   37.00  200.00   23.00   56.00    0.45    7.50
+##   [57]  150.00   47.00    4.10    5.50   98.00    1.60    1.30    0.01
+##   [65]    3.50    0.02   75.00    0.60    4.80  331.00  619.00   60.00
+##   [73]    0.41    0.84   11.00    1.70    4.50  400.00   17.00  450.00
+##   [81]  240.00    0.70  300.00  230.00    2.10    0.86  571.00  600.00
+##   [89]    2.80  800.00  120.00  700.00  275.00    1.10  175.00  204.00
+##   [97]  125.00  350.00    6.50  135.00    9.00  650.00    0.80    0.90
+##  [105]    1.40    3.40  110.00    1.90    0.17    3.30    7.70   26.00
+##  [113]    7.60  106.00  518.00   88.00    6.40    1.20    8.20    8.30
+##  [121]    5.40    4.40  270.00    1.80    4.30  140.00  130.00    3.80
+##  [129]    2.40  750.00    4.90  105.00  850.00   16.00  330.00  303.00
+##  [137]   34.00  176.00    0.15    0.13    6.70    8.50    0.06    2.20
+##  [145]  630.00    4.20    5.20    8.70  155.00    2.70  195.00    3.20
+##  [153]  180.00    8.40  160.00  897.00  132.00  185.00  192.00   61.00
+##  [161]  810.00  374.00   13.00  118.00  170.00   68.00  475.00    3.60
+##  [169]  145.00  260.00  210.00  415.00  220.00  115.00    3.90  375.00
+##  [177]  460.00  225.00   62.00    0.08    0.07    4.60    0.04  325.00
+##  [185]    6.60   43.00  675.00    0.35   78.00   27.00   67.00    6.20
+##  [193]   36.00   53.00  380.00  595.00    1.25  320.00   63.00    0.75
+##  [201]   12.30   37.40  520.00   31.00  470.00   44.60   44.00   13.50
+##  [209]   44.70   14.50   21.50  530.00  183.50   12.50    1.84   99.00
+##  [217]  550.00   52.00    2.90   12.80    1.07    7.20    5.47  594.00
+##  [225]  231.00  561.00  570.00    2.33   10.20   14.98    1.14   10.75
+##  [233]   14.96   41.70    5.80   19.00  733.40  680.00  620.00   58.00
+##  [241]   18.80   14.20   10.72  720.00    1.68   73.00  640.00    7.90
+##  [249]   17.80    5.70    9.30    6.55  133.00   21.00   29.00   89.00
+##  [257]   11.50   41.00   14.40    2.01  310.00  140.25  510.00  792.15
+##  [265]   14.25    3.37  187.00    3.72    5.09    1.26    3.43  352.00
+##  [273]  529.00  128.00    5.25  280.00   10.50   71.50   18.97   21.10
+##  [281]    9.90   17.90   19.50   21.30   20.10   12.71    9.60   42.31
+##  [289]    4.38   71.00    3.05  670.00   69.00  780.00  490.00  635.00
+##  [297]    1.16  440.00  324.00    2.03    6.30    0.11   12.60    2.82
+##  [305]  560.00    7.51   77.00  265.00   78.74   31.50    9.50    4.52
+##  [313]    2.41    4.12   21.70   16.50   33.00    5.30  480.00   39.50
+##  [321]   39.00   54.00  410.00   64.00    2.30   60.50    1.76    1.75
+##  [329]   30.30  190.00    3.45  215.00  940.00   17.70    3.10  114.00
+##  [337]   12.90  525.00  214.00    2.95   17.50    2.75  536.00    2.25
+##  [345]   49.00    1.04    7.80  126.00    2.55  297.08   88.15   55.60
+##  [353]  207.00   15.20    1.85   11.85    8.45    2.45    5.08    5.05
+##  [361]   28.50    9.76  693.40  203.00  253.00   37.50   79.98  100.02
+##  [369]    0.99   49.98    4.96    1.18    1.35   22.88  160.80   57.12
+##  [377]    0.51    7.30    0.78    9.80  269.00    1.05   56.50  108.00
+##  [385]    1.78  219.00    4.26   81.00  196.00  107.00   72.00  184.00
+##  [393]  425.00  165.00   55.08    6.32    3.04   96.00   44.72  102.00
+##  [401]   46.00  540.00    0.55    5.10   76.60   79.00  917.00  205.00
+##  [409]  286.00  147.00   24.70  106.72    4.70    0.66    0.12   98.26
+##  [417]   19.79    0.76  655.00  585.00   42.40    4.25  385.00  770.00
+##  [425]  149.00   78.70    5.38   20.40  388.50  151.40  159.00   91.00
+##  [433]  382.00  174.16   46.80   13.90   20.80    4.29  880.00   29.70
+##  [441]   35.90   10.30  262.00  365.00  348.00    1.06   87.80  117.00
+##  [449]  645.00   25.52  437.00  367.00    1.13  284.00  255.00   61.98
+##  [457]  161.00  435.00   88.50   51.00  312.00    1.02   29.96  229.90
+##  [465]  299.88    8.65    8.90   30.70   17.30  250.03    1.49   82.00
+##  [473]    6.25   32.50    1.65  775.00  218.00   31.95  304.00   31.52
+##  [481]   30.06  347.00  463.00  766.00  515.00    4.02   24.21   34.63
+##  [489]    1.11    1.24   86.60   49.34  373.00  502.70  610.00  405.00
+##  [497]    3.25  315.00  825.00    9.20   17.60    0.85  602.00    2.78
+##  [505]   16.60  233.00   23.70   26.87   17.03    2.66    1.86  745.00
+##  [513]  212.00  154.00  575.00   66.00  100.03   22.18  482.00   26.20
+##  [521]   13.40  305.00  535.00  505.00   24.50   15.50   18.50   54.10
+##  [529]   97.00  193.00   99.97  360.00  413.50    3.83  166.00  499.92
+##  [537]  970.00  172.00    0.21    1.51    3.70  287.18  268.00   76.00
+##  [545]    5.75  101.00   23.55    5.55   66.50  467.00  914.00    3.64
+##  [553]    3.13  875.00    3.71  642.00    8.57    3.46   19.20   57.00
+##  [561]  950.00  845.00  167.00   22.14    4.74    1.72   10.36  346.00
+##  [569]  245.00  370.00    2.05  227.00   66.90  290.00   13.30   22.20
+##  [577]   13.80   25.13    4.15  224.00    5.90   13.47  758.00  890.00
+##  [585]  186.00  690.00    7.55   94.00    1.58   27.50    1.55    2.48
+##  [593]   82.50    6.68  178.40  138.60    3.15  278.00    2.60  547.00
+##  [601]    1.77  960.00   92.00    2.77   22.50  431.72  570.45    1.15
+##  [609]  358.00  174.40    2.73    3.74  500.01  975.00  920.00  499.96
+##  [617]  410.62  109.00    2.58  590.00    1.01  328.00  910.00   56.54
+##  [625]  932.00    4.71    2.52    1.47   20.02  295.00  476.00  237.00
+##  [633]  738.00   72.70   74.00    6.51  990.00   11.10    7.72   99.39
+##  [641]  617.00  153.00  870.00  654.00  122.00  148.00   83.00   78.20
+##  [649]   22.70  662.00  665.00   48.02   47.30  625.00   75.30  130.02
+##  [657]    1.27  925.00   76.30  127.00  235.00  271.00  378.00  343.00
+##  [665]    6.07  755.00  285.00    8.43   84.00    3.31  166.50  183.00
+##  [673]  557.00  363.00  111.00  502.00   59.00   46.50  151.00  103.00
+##  [681]   14.60    4.43   74.25    1.88  500.40  510.07  116.00  508.00
+##  [689]  123.00  229.00  465.00    4.57   10.40   32.20    9.25   96.80
+##  [697]  583.00    6.05    1.53    6.82  179.50  153.55  787.00  501.00
+##  [705]  565.00  840.00  777.80    6.06  144.00    7.05    6.10  606.00
+##  [713]  279.00   16.90    1.46  936.00  382.50   16.05    4.65    1.95
+##  [721]  420.00  173.00    2.27   17.14  548.00  209.00  112.00  322.20
+##  [729]  134.00   15.75  955.00  354.00   50.02    1.48  113.00  390.00
+##  [737]  815.00  586.00  604.00    3.57    1.79  760.00  100.50  146.50
+##  [745]   25.50  149.85   33.50    1.28  785.00  213.00    1.37  266.00
+##  [753]    5.15    3.75  713.00  888.00   11.60    6.45    7.45    4.06
+##  [761]    1.38   65.50    5.60  988.00    2.16   10.05    3.68  830.00
+##  [769]    3.78   14.30   45.70   12.70   15.30    3.96  158.00   11.18
+##  [777]   11.02  142.00   11.65  485.00  308.00    5.74  554.00  762.00
+##  [785]    9.51  202.00  381.00   93.00   26.50    5.76   15.60  108.63
+##  [793]  149.58  368.00  820.00   18.54   13.25   13.36   14.26  138.00
+##  [801]  479.00    5.94    6.75  971.00    8.85    1.61    3.55   45.50
+##  [809]  580.00    6.80  162.00  335.00  201.00    0.22  968.00  459.00
+##  [817]  189.00   16.20  577.00  345.00  261.00    4.45   11.15    3.28
+##  [825]    1.59  824.00  460.56    1.54  806.77  696.40   55.22  278.60
+##  [833]   16.96    3.24  979.00   16.10   17.75  337.00    9.17  935.00
+##  [841]  179.00  257.00   41.60  645.15   39.60  246.00    1.34   26.30
+##  [849]   19.64    2.35    5.24    2.46  530.47    1.81  161.11   21.20
+##  [857]   14.70  137.90  725.00    1.29  430.00    2.65   28.55    1.69
+##  [865]  954.00  710.00  435.60    7.29  534.00    1.33    2.32    3.54
+##  [873]   32.22   18.05    0.95  493.00  206.00  141.00    2.81    3.92
+##  [881]   11.62    5.58   13.95   23.23   16.74    9.31   11.16    4.22
+##  [889]    8.37  283.00   10.88   19.77   21.88    1.45    8.87    3.02
+##  [897]  506.00   45.07   55.10    1.82   16.87    4.86   44.50    8.60
+##  [905]   13.53   12.05   51.50  340.00  104.00   19.90   12.20    1.92
+##  [913]    8.09  163.50  177.00  143.00    5.42  929.00  621.00    4.83
+##  [921]   23.50  127.20  179.40    1.74   90.43  379.90  323.00  702.00
+##  [929]  134.80    2.53    2.19  613.00    5.51   14.28  327.00    2.22
+##  [937]  758.25  661.00  242.00    3.53    1.43   97.20  136.00   11.83
+##  [945]  355.00   16.25    6.67    1.23    6.63   10.43    4.51    4.17
+##  [953]    3.11    1.03    2.36   12.40    8.10  243.00  605.00   54.90
+##  [961]  451.00   19.30   10.15   30.50   49.94  277.00    5.13    6.14
+##  [969]  478.00   23.20    0.81   10.25  359.00    2.57  706.00   43.60
+##  [977]    8.25   53.80  438.00    1.41  353.00   35.55  876.00  915.00
+##  [985]  178.00   34.89    2.69   38.50   20.50  198.50  868.50   55.90
+##  [993]   60.80    1.71    8.80    7.15    6.90   13.15  148.25    9.77
+## [1001]  930.00    3.94  270.75  163.00  246.10   50.10  952.50  168.00
+## [1009]   11.70  740.00    2.54    4.85  288.00   47.50   16.93   31.30
+## [1017]  432.00    5.99  643.00  442.00  545.00  445.00    7.35   11.26
+## [1025]    5.88  746.00  701.00    7.64  973.00  724.00  945.00  257.95
+## [1033]   19.94  179.61   79.20   42.16  124.90    8.97    1.73    3.65
+## [1041]   22.75    1.62  348.10    0.16   86.00   87.00    2.09  159.50
+## [1049]  139.00    5.16  592.00   40.50   34.31  171.00   40.20    7.75
+## [1057]  411.14  280.10  531.10    9.72  357.00  137.00  249.00  121.70
+## [1065]  411.00    1.57    3.47    1.87  146.00  996.00    1.32  552.00
+## [1073]  259.00  164.00  524.00  623.00    5.27   10.10  632.00  887.00
+## [1081]  294.00    9.06  660.00  995.00   10.80   49.90   94.50   89.50
+## [1089]   36.20   28.68  569.00    1.99    4.44    4.36    2.38    3.17
+## [1097]    6.34   12.06  542.00   31.90   31.70   31.60  151.10   76.50
+## [1105]  208.00  989.00  129.00  434.00  377.00    1.44    1.56  338.00
+## [1113]    4.84   21.60   81.15   18.20  314.00  297.00  472.00   41.50
+## [1121]  612.00    9.70   62.60  124.00   18.30  556.00    0.18    7.77
+## [1129]  823.00   16.70    1.91   11.90   28.20    1.36    2.67  777.00
+## [1137]    0.33    0.26    0.36  234.00    2.47   36.25  444.59  431.00
+## [1145]  576.00    1.89  121.00   16.80  226.00  684.00    9.75   19.40
+## [1153]    2.63   20.20   22.85    9.40    6.74  370.40  366.50  727.00
+## [1161]  481.00  274.00  957.00  242.80  639.00  581.00  291.00    4.93
+## [1169]   28.40   10.69    7.10   22.60   96.60   63.70  128.70   18.40
+## [1177]   14.10  156.50    4.94  691.00  686.00   13.71    7.93    8.75
+## [1185]    6.57  429.00    4.64  102.22   62.99    1.97   77.97   15.66
+## [1193]  462.00    2.15   22.40  525.60    2.83  462.16  402.30   18.60
+## [1201]   13.54  453.00   13.20 3000.00  157.00 4410.00  748.00  264.00
+## [1209]  553.00  603.00  342.00  558.00   14.80  152.00  191.00  161.20
+## [1217]  555.00  216.00  488.00  166.67  177.50  813.00   68.60   49.50
+## [1225]  715.00   52.50 3500.00  901.60  167.50   13.13   12.29  252.00
+## [1233]    3.85   35.50   12.17  222.00  321.00 5000.00  964.00  397.50
+## [1241]    0.63   11.40    0.74    7.44  455.00   44.52    0.87    5.63
+## [1249]    3.18   21.75    0.34    8.48   10.44    0.23    5.85    1.17
+## [1257]    5.52 1000.00  362.00  241.00 4800.00   17.92    3.33  119.00
+## [1265]   13.67    3.27   16.15   10.70   26.43   11.79   23.58   25.65
+## [1273]    4.05    8.07   70.90   24.76   26.64    5.91    3.52    8.32
+## [1281]   16.64  349.00    8.81  868.00  598.00  232.00  859.00   11.30
+## [1289]   77.80   28.90    3.95    3.34  112.50   29.50 3200.00  258.00
+## [1297]  150.20   55.50   20.60  211.00  253.38  892.00  433.70    5.64
+## [1305]   24.10  272.00  257.40  297.30  934.30   20.90  423.00    3.03
+## [1313]    4.59    3.29  217.00  402.00   17.20    1.63    6.61  418.00
+## [1321]   19.70    1.96  309.00    3.81  182.00  296.70   25.90    6.53
+## [1329]   10.60    2.26  267.00    1.19  855.00 1584.00  333.00   26.60
+## [1337]  262.50  767.00  426.00    1.21  685.00    1.66  557.50   10.90
+## [1345]    4.75    4.37  643.90  676.00    1.08    3.56   11.20  282.00
+## [1353]    6.88    2.98    3.91  572.00    4.27    2.07    1.83   83.80
+## [1361]    7.06   45.80    3.48   88.75  371.00  865.00  730.00  458.00
+## [1369]  615.00   15.25   39.80    3.99    2.28  688.00  716.00  752.00
+## [1377]    2.72  276.00  311.00  667.00   53.90  227.60  461.00  351.50
+## [1385]   27.10   40.30   69.70  164.80  181.00   43.50
+</code></pre>
+
+<p>Lets reduce duplicate magnitude values by converting small case to upper case.</p>
+
+<pre><code class="r">readData$PROPDMGEXP &lt;- toupper(readData$PROPDMGEXP)
+unique(readData$PROPDMGEXP)
+</code></pre>
+
+<pre><code>##  [1] &quot;K&quot; &quot;M&quot; &quot;&quot;  &quot;B&quot; &quot;+&quot; &quot;0&quot; &quot;5&quot; &quot;6&quot; &quot;?&quot; &quot;4&quot; &quot;2&quot; &quot;3&quot; &quot;H&quot; &quot;7&quot; &quot;-&quot; &quot;1&quot; &quot;8&quot;
+</code></pre>
+
+<p>For purposes of this report the following magnitudes are considered</p>
+
+<p>*PROPDMGEXP = H will be 100s</p>
+
+<p>*PROPDMGEXP = K will be 1000s</p>
+
+<p>*PROPDMGEXP = M will be 1000000s</p>
+
+<p>*PROPDMGEXP = B will be 1000000000s</p>
+
+<p>*PROPDMGEXP = 1,2,3,4,5,6,7,8 will be 10 raised to these values </p>
+
+<p>*For all other values of PROPDMGEXP the PROPDMG value is considered as it is. The below code will check each PROPDMG and update a new COSTS field by considering the coefficient and magnitudes.</p>
+
+<pre><code class="r">calcVal &lt;- function(coeff, mag = &quot;&quot;) {
+    switch(mag, `-` = coeff*0.1, `?` = coeff, `+` = coeff, `1` = coeff*10, `2` = coeff * (10^2), `3` = coeff * (10^3), 
+           `4` = coeff * (10^4), `5` = coeff * (10^5), `6` = coeff * (10^6), `7` = coeff * (10^7), `8` = coeff * (10^8), 
+           &#39;H&#39; = coeff * 100, &#39;K&#39; = coeff * 1000, &#39;M&#39; = coeff * 1000000, &#39;B&#39; = coeff * 1e+09, coeff)
+}
+
+coeffData&lt;-readData$PROPDMG
+magData&lt;-readData$PROPDMGEXP
+results&lt;-coeffData
+
+for (i in 1:length(coeffData))
+  {
+    results[i] &lt;- calcVal(coeffData[i], magData[i])
+
+  }
+
+readData$Costs&lt;-results
+</code></pre>
+
+<p>Now we construct the graph that shows the 30 top events causings severe consequences.</p>
+
+<pre><code class="r">readData&lt;-readData[order(readData$Costs, decreasing=TRUE), ]
+g&lt;-ggplot(readData[1:30,], aes(EVTYPE,Costs))
+g&lt;-g+geom_bar(stat=&quot;identity&quot;)+ xlab(&quot;Event&quot;)+ ylab(&quot;Costs to Country&quot;) + ggtitle(&quot;Top 15 events with severe economic consequence&quot;) + coord_flip()
+print(g)
+</code></pre>
+
+<p><img src="data:image/png;base64,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" alt="plot of chunk unnamed-chunk-11"/> </p>
+
+<p><em>We see Flood as the major cost to the economy (USA)</em></p>
+
+</body>
+
+</html>

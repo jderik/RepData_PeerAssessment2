@@ -1,0 +1,169 @@
+---
+title: "Storm Data Analysis"
+author: ' by JD'
+date: "Saturday, April 25, 2015"
+output: pdf_document
+---
+
+
+### A. Synopsis
+Storms and other severe weather events can cause both public health and economic problems for communities and municipalities. Many severe events can result in fatalities, injuries, and property damage, and preventing such outcomes to the extent possible is a key concern.
+
+This project involves exploring the U.S. National Oceanic and Atmospheric Administration's (NOAA) storm database. This database tracks characteristics of major storms and weather events in the United States, including when and where they occur, as well as estimates of any fatalities, injuries, and property damage.
+
+Chiefly this document addresses
+
+*Across the United States, which types of events are most harmful with respect to population health?
+
+*Across the United States, which types of events have the greatest economic consequences?
+
+### B. Data Processing 
+The data for this assignment come in the form of a comma-separated-value file compressed via the bzip2 algorithm to reduce its size. 
+The events in the database start in the year 1950 and end in November 2011. In the earlier years of the database there are generally fewer events recorded, most likely due to a lack of good records. More recent years should be considered more complete.
+
+#### _B.1 Load Libraries_
+
+``` {r echo=TRUE}
+library(ggplot2)
+library(plyr)
+```
+#### _B.2 Set work directory & Load Data_
+
+``` {r echo=TRUE, cache=TRUE}
+setwd("~/Coursera/5/RepData_PeerAssessment2")
+
+data <- file.path(getwd(), "StormData.csv.bz2")
+readData <- read.csv(data, stringsAsFactors = FALSE)
+```
+
+#### _B.3 Data Analyze View_
+
+##### _B.3.1 View data using class and str and summary_
+``` {r echo=TRUE}
+class(readData)
+str(readData)
+summary(readData)
+
+```
+
+*This indicates tha there are 902297 observations ; 37 variables
+
+##### _B.3.2 View the unique EVTYPE contents_
+``` {r echo=TRUE}
+sort(unique(readData$EVTYPE))
+```
+
+
+### C. Results
+
+##### C.1 To view the events that are most harmful to population
+
+We use the FATALITIES parameter to consider event harmful to population. Here lets aggregate all fatalities numbers to give a sum of fatalities.
+
+But first the FATALITIS parameter need to be made numeric otherwise the aggregate wont work.Both steps below.
+```{r, echo=TRUE}
+readData$FATALITIES <- as.numeric(readData$FATALITIES)
+fatalitiesData<-aggregate(FATALITIES~EVTYPE, data=readData, FUN=sum)
+
+```
+
+##### C.2 Lets view the top 15 rows
+
+First we sort the fatalitiesData in order of number of fatalities in descending order.
+```{r, echo=TRUE}
+fatalitiesData<-fatalitiesData[order(fatalitiesData$FATALITIES, decreasing=TRUE), ]
+```
+
+Now construct plot ; Flip coordinate() is used as per http://docs.ggplot2.org/0.9.3.1/geom_bar.html
+```{r , echo=TRUE}
+g<-ggplot(fatalitiesData[1:15,], aes(EVTYPE,FATALITIES))
+g<-g+geom_bar(stat="identity")+ xlab("Event")+ ylab("Fatalities") + ggtitle("Top 15 Fatalities caused by noted events") + coord_flip()
+print(g)
+```
+
+This shows that highest fatalities are caused by TORNADO related events followed by EXCESSIVE HEAT related events.
+
+##### C.3 Identifying Economic Impacts
+
+As per the doc provided at
+
+_* https://class.coursera.org/repdata-013/forum/thread?thread_id=48 *_
+
+THe PROPDMG/PROPDMGEXP seem to be the right fields to decide the damage.
+PROPDMG is the coefficient for the magnitudes in PROPDMGEXP which are: 
+
+
+``` {r, echo=TRUE}
+unique(readData$PROPDMG)
+```
+
+Lets reduce duplicate magnitude values by converting small case to upper case.
+
+``` {r, echo=TRUE}
+readData$PROPDMGEXP <- toupper(readData$PROPDMGEXP)
+unique(readData$PROPDMGEXP)
+
+```
+
+For purposes of this report the following magnitudes are considered
+
+*PROPDMGEXP = H will be 100s
+
+*PROPDMGEXP = K will be 1000s
+
+*PROPDMGEXP = M will be 1000000s
+
+*PROPDMGEXP = B will be 1000000000s
+
+*PROPDMGEXP = 1,2,3,4,5,6,7,8 will be 10 raised to these values 
+
+*For all other values of PROPDMGEXP the PROPDMG value is considered as it is. The below code will check each PROPDMG and update a new COSTS field by considering the coefficient and magnitudes.
+
+
+
+``` {r, echo=TRUE, cache=TRUE}
+
+calcVal <- function(coeff, mag = "") {
+    switch(mag, `-` = coeff*0.1, `?` = coeff, `+` = coeff, `1` = coeff*10, `2` = coeff * (10^2), `3` = coeff * (10^3), 
+           `4` = coeff * (10^4), `5` = coeff * (10^5), `6` = coeff * (10^6), `7` = coeff * (10^7), `8` = coeff * (10^8), 
+           'H' = coeff * 100, 'K' = coeff * 1000, 'M' = coeff * 1000000, 'B' = coeff * 1e+09, coeff)
+}
+
+coeffData<-readData$PROPDMG
+magData<-readData$PROPDMGEXP
+results<-coeffData
+
+for (i in 1:length(coeffData))
+  {
+    results[i] <- calcVal(coeffData[i], magData[i])
+    
+  }
+
+readData$Costs<-results
+
+```
+
+Now we construct the graph that shows the 30 top events causings severe consequences.
+
+
+```{r , echo=TRUE}
+
+readData<-readData[order(readData$Costs, decreasing=TRUE), ]
+g<-ggplot(readData[1:30,], aes(EVTYPE,Costs))
+g<-g+geom_bar(stat="identity")+ xlab("Event")+ ylab("Costs to Country") + ggtitle("Top 15 events with severe economic consequence") + coord_flip()
+print(g)
+```
+
+*We see Flood as the major cost to the economy (USA)*
+
+
+
+
+
+
+
+
+
+
+
+
